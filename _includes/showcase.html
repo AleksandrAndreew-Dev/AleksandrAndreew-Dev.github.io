@@ -1,15 +1,31 @@
-<section class="hero is-fullheight has-text-centered" id="hero">
+<section class="hero is-fullheight-with-navbar has-background-primary" id="hero">
   <div class="hero-body">
-    <div class="container">
-      <h1 class="title has-text-white is-size-1 is-uppercase has-text-weight-bold">
+    <div class="container has-text-centered">
+      <h1 class="title has-text-white is-size-1 is-size-2-mobile is-uppercase has-text-weight-bold mb-4">
         {{site.title}}
       </h1>
-      <h3 class="subtitle has-text-white-bis is-uppercase has-text-weight-medium is-marginless">
+      <h3 class="subtitle has-text-white-bis is-size-4 is-size-5-mobile mb-6">
         {{site.description}}
       </h3>
-      <hr>
-      <a href="{{site.url}}{{site.baseurl}}/#about"
-        class="button is-black is-rounded is-outlined is-uppercase has-text-weight-normal">Read More</a>
+      <div class="buttons is-centered">
+        <a href="{{site.url}}{{site.baseurl}}/#about"
+          class="button is-white is-outlined is-rounded is-medium">
+          <span class="icon"><i class="fas fa-user"></i></span>
+          <span>About Me</span>
+        </a>
+        <a href="{{site.url}}{{site.baseurl}}/#projects"
+          class="button is-light is-rounded is-medium">
+          <span class="icon"><i class="fas fa-briefcase"></i></span>
+          <span>View Projects</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <div class="container has-text-centered pb-6">
+      <a href="#about" class="has-text-white is-size-4">
+        <i class="fas fa-chevron-down"></i>
       </a>
     </div>
   </div>

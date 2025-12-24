@@ -1,61 +1,74 @@
-<section class="hero is-fullheight has-text-centered" id="contact">
-    <div class="hero-body">
-        <div class="container">
+<section class="section has-background-light" id="contact">
+    <div class="container">
+        <div class="has-text-centered mb-6">
+            <h2 class="title is-2 has-text-weight-bold mb-3">Get In Touch</h2>
+            <p class="subtitle is-5 has-text-grey">Feel free to reach out through any channel</p>
+        </div>
+
+        <div class="columns is-centered is-multiline">
             {% unless site.facebook_username == %}
-            <a id="contact-button" href="https://m.me/{{site.facebook_username}}"
-                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank">
-                <i class="fab fa-facebook-messenger"></i>Ping me on Messenger
-            </a>
+            <div class="column is-4-desktop is-6-tablet">
+                <a id="contact-button" href="https://m.me/{{site.facebook_username}}"
+                    class="button is-fullwidth is-primary is-rounded is-medium"
+                    target="_blank">
+                    <span class="icon"><i class="fab fa-facebook-messenger"></i></span>
+                    <span>Messenger</span>
+                </a>
+            </div>
             {% endunless %}
+
             {% unless site.email == %}
-            <a id="contact-button" href="mailto:{{site.email}}"
-                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank">
-                <i class="fas fa-envelope"></i>Send me an Email
-            </a>
+            <div class="column is-4-desktop is-6-tablet">
+                <a id="contact-button" href="mailto:{{site.email}}"
+                    class="button is-fullwidth is-primary is-outlined is-rounded is-medium"
+                    target="_blank">
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    <span>Email</span>
+                </a>
+            </div>
             {% endunless %}
+
             {% unless site.twitter_username == %}
-            <a id="contact-button" href="https://www.twitter.com/intent/tweet?screen_name={{site.twitter_username}}"
-                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined has-text-weight-semibold column is-two-fifths"
-                target="_blank">
-                <i class="fab fa-twitter"></i>Tweet me on Twitter
-            </a>
+            <div class="column is-4-desktop is-6-tablet">
+                <a id="contact-button" href="https://www.twitter.com/intent/tweet?screen_name={{site.twitter_username}}"
+                    class="button is-fullwidth is-link is-rounded is-medium"
+                    target="_blank">
+                    <span class="icon"><i class="fab fa-twitter"></i></span>
+                    <span>Twitter</span>
+                </a>
+            </div>
             {% endunless %}
-            <hr>
-            <h3 class="is-size-5 is-uppercase has-text-weight-semibold has-text-black is-marginless">
-                You Can find me here
-            </h3>
-            <div class="column is-full is-size-3">
+        </div>
+
+        <hr class="my-6">
+
+        <div class="has-text-centered">
+            <h3 class="title is-4 mb-5">Find me on social media</h3>
+            <div class="social-icons is-size-3">
                 {% unless site.facebook_username == %}
-                <a href="http://www.facebook.com/{{site.facebook_username}}" target="_blank" class="has-text-black"><i class="fab fa-facebook"></i></a>
+                <a href="http://www.facebook.com/{{site.facebook_username}}" target="_blank" class="mx-3">
+                    <i class="fab fa-facebook has-text-dark"></i>
+                </a>
                 {% endunless %}
                 {% unless site.twitter_username == %}
-                <a href="https://twitter.com/intent/user?screen_name={{site.twitter_username}}" target="_blank" class="has-text-black"><i class="fab fa-twitter"></i></a>
+                <a href="https://twitter.com/intent/user?screen_name={{site.twitter_username}}" target="_blank" class="mx-3">
+                    <i class="fab fa-twitter has-text-dark"></i>
+                </a>
                 {% endunless %}
-                {% unless site.instagram_username ==  %}
-                <a href="http://www.instagram.com/{{site.instagram_username}}" target="_blank" class="has-text-black"><i class="fab fa-instagram"></i></a>
+                {% unless site.instagram_username == %}
+                <a href="http://www.instagram.com/{{site.instagram_username}}" target="_blank" class="mx-3">
+                    <i class="fab fa-instagram has-text-dark"></i>
+                </a>
                 {% endunless %}
-                {% unless site.linkedin_username ==  %}
-                <a href="http://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="has-text-black"><i class="fab fa-linkedin"></i></a>
+                {% unless site.linkedin_username == %}
+                <a href="http://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="mx-3">
+                    <i class="fab fa-linkedin has-text-dark"></i>
+                </a>
                 {% endunless %}
-                {% unless site.github_username ==  %}
-                <a href="http://www.github.com/{{site.github_username}}" target="_blank" class="has-text-black"><i class="fab fa-github"></i></a>
-                {% endunless %}
-                {% unless site.youtube_channel_id ==  %}
-                <a href="http://www.youtube.com/channel/{{site.youtube_channel_id}}" target="_blank" class="has-text-black"><i class="fab fa-youtube"></i></a>
-                {% endunless %}
-                {% unless site.reddit_username ==  %}
-                <a href="http://www.reddit.com/u/{{site.reddit_username}}" target="_blank" class="has-text-black"><i class="fab fa-reddit"></i></a>
-                {% endunless %}
-                {% unless site.behance_username ==  %}
-                <a href="http://www.behance.com/{{site.behance_username}}" target="_blank" class="has-text-black"><i class="fab fa-behance"></i></a>
-                {% endunless %}
-                {% unless site.dribbble_username ==  %}
-                <a href="http://www.dribbble.com/{{site.dribbble_username}}" target="_blank" class="has-text-black"><i class="fab fa-dribbble"></i></a>
-                {% endunless %}
-                {% unless site.spotify_username ==  %}
-                <a href="http://open.spotify.com/user/{{site.spotify_username}}" target="_blank" class="has-text-black"><i class="fab fa-spotify"></i></a>
+                {% unless site.github_username == %}
+                <a href="http://www.github.com/{{site.github_username}}" target="_blank" class="mx-3">
+                    <i class="fab fa-github has-text-dark"></i>
+                </a>
                 {% endunless %}
             </div>
         </div>

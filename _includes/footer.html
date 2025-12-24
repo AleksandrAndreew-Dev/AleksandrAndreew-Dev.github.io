@@ -1,110 +1,191 @@
-<footer id="footer">
-    <!--Footer Button-->
-    <div class="container has-text-centered has-background-light" id="backtotop">
-        <a class="has-text-primary" onclick="window.scroll(0,0)">
-            <span class="icon"><i class="fas fa-chevron-up"></i></span>
-            <span>BACK TO TOP</span>
-        </a>
+<footer id="footer" class="has-background-black has-text-light">
+    <!--Back to Top Button-->
+    <div class="back-to-top-wrapper has-background-black-dark py-4">
+        <div class="container has-text-centered">
+            <button class="back-to-top button is-primary is-rounded is-outlined is-small" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <span class="icon">
+                    <i class="fas fa-chevron-up"></i>
+                </span>
+                <span>BACK TO TOP</span>
+            </button>
+        </div>
     </div>
 
-    <!--Footer Main Section-->
-    <div class="has-background-light">
-        <div class="container columns py-6">
-            <!--Name Section-->
-            <div class="column has-text-left-desktop has-text-centered-mobile">
-                <a href="{{site.url}}{{site.baseurl}}/#about">
-                    <div class="columns is-vcentered">
-                        <div class="column is-one-fifth-desktop is-one-fifth-fullhd is-one-quarter-tablet">
-                            <figure class="image is-64x64">
-                                <img class="is-rounded" src="{{site.author-image}}" alt="{{site.author-name}}">
-                            </figure>
-                        </div>
-                        <div class="column is-marginless">
-                            <h5 class="has-text-primary has-text-weight-bold">{{site.author-name}}</h5>
-                            <div class="content has-text-grey">
-                                <p>{{site.author-about | truncate: 75 }}</p>
+    <!--Main Footer Content-->
+    <div class="footer-main has-background-black py-6">
+        <div class="container">
+            <div class="columns is-variable is-5">
+                <!--About Section-->
+                <div class="column is-3">
+                    <div class="footer-brand mb-5">
+                        <div class="is-flex is-align-items-center mb-4">
+                            <div class="footer-logo mr-3">
+                                <figure class="image is-64x64">
+                                    <img class="is-rounded" src="{{site.author-image}}" alt="{{site.author-name}}">
+                                </figure>
+                            </div>
+                            <div>
+                                <h4 class="has-text-white has-text-weight-bold is-size-5">{{site.author-name}}</h4>
+                                <p class="has-text-grey-light is-size-7">{{site.author-role | default: "Professional" }}</p>
                             </div>
                         </div>
+                        <p class="has-text-grey-light is-size-7">{{site.author-about | truncate: 120 }}</p>
                     </div>
-                </a>
-            </div>
+                    <div class="social-links mt-4">
+                        {% if site.email %}
+                        <a href="mailto:{{site.email}}" class="button is-dark is-small is-rounded mr-2 mb-2">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                        </a>
+                        {% endif %}
+                        {% if site.linkedin_username %}
+                        <a href="https://linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="button is-dark is-small is-rounded mr-2 mb-2">
+                            <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+                        </a>
+                        {% endif %}
+                        {% if site.github_username %}
+                        <a href="https://github.com/{{site.github_username}}" target="_blank" class="button is-dark is-small is-rounded mr-2 mb-2">
+                            <span class="icon"><i class="fab fa-github"></i></span>
+                        </a>
+                        {% endif %}
+                        {% if site.twitter_username %}
+                        <a href="https://twitter.com/{{site.twitter_username}}" target="_blank" class="button is-dark is-small is-rounded mr-2 mb-2">
+                            <span class="icon"><i class="fab fa-twitter"></i></span>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
 
-            <!--Link Section-->
-            <div class="column">
-                <h3 class="has-text-primary has-text-weight-bold mb-3">Quick Links</h3>
-                <ul>
-                {% for sitepage in site.html_pages offset: 4 %}
-                {% unless sitepage.url == '/'  limit: 2 %}
-                <li class="mb-2">
-                    <a href="{{sitepage.url | absolute_url}}" class="has-text-grey">
-                        {{sitepage.title}}
-                    </a>
-                </li>
-                {% endunless %}
-                {% endfor %}
-                <li class="mb-2">
-                    <a target="_blank" href="{{site.url}}{{site.baseurl}}/feed.xml" class="has-text-grey">
-                        Subscribe via RSS
-                    </a>
-                </li>
-                </ul>
-            </div>
+                <!--Quick Links-->
+                <div class="column is-2">
+                    <h5 class="footer-title has-text-white has-text-weight-bold mb-4">Quick Links</h5>
+                    <ul class="footer-links">
+                        {% for sitepage in site.html_pages offset: 4 limit: 4 %}
+                        {% unless sitepage.url == '/' %}
+                        <li class="mb-3">
+                            <a href="{{sitepage.url | absolute_url}}" class="has-text-grey-light hover-primary">
+                                <span class="icon is-small">
+                                    <i class="fas fa-chevron-right fa-xs"></i>
+                                </span>
+                                {{sitepage.title}}
+                            </a>
+                        </li>
+                        {% endunless %}
+                        {% endfor %}
+                        <li class="mb-3">
+                            <a href="{{site.url}}{{site.baseurl}}/sitemap.xml" class="has-text-grey-light hover-primary">
+                                <span class="icon is-small">
+                                    <i class="fas fa-sitemap fa-xs"></i>
+                                </span>
+                                Sitemap
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-            <!--Blog-post Section-->
-            <div class="column">
-                <h3 class="has-text-primary has-text-weight-bold mb-3">Recent Posts</h3>
-                <ul>
-                {% for post in site.posts offset: 0 limit:3 %}
-                <li class="mb-2">
-                    <a href="{{post.url | absolute_url}}" class="has-text-grey">
-                        {{post.title}}
-                    </a>
-                </li>
-                {% endfor %}
-                </ul>
-            </div>
+                <!--Recent Posts-->
+                <div class="column is-3">
+                    <h5 class="footer-title has-text-white has-text-weight-bold mb-4">Recent Posts</h5>
+                    <ul class="footer-posts">
+                        {% for post in site.posts offset: 0 limit:3 %}
+                        <li class="mb-4">
+                            <a href="{{post.url | absolute_url}}" class="is-flex is-align-items-center">
+                                {% if post.image %}
+                                <div class="post-thumbnail mr-3">
+                                    <figure class="image is-48x48">
+                                        <img src="{{post.image}}" alt="{{post.title}}" class="is-rounded" style="object-fit: cover;">
+                                    </figure>
+                                </div>
+                                {% endif %}
+                                <div>
+                                    <h6 class="has-text-white is-size-7 mb-1">{{post.title | truncate: 50}}</h6>
+                                    <p class="has-text-grey-light is-size-8">{{post.date | date: "%b %d, %Y"}}</p>
+                                </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
-            <!--Contact Section-->
-            <div class="column">
-                <h3 class="has-text-primary has-text-weight-bold mb-3">Get In Touch</h3>
-                <div class="social-icons">
-                    {% if site.linkedin_username %}
-                    <a href="https://linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="has-text-grey mr-3">
-                        <i class="fab fa-linkedin fa-lg"></i>
-                    </a>
-                    {% endif %}
-                    {% if site.github_username %}
-                    <a href="https://github.com/{{site.github_username}}" target="_blank" class="has-text-grey mr-3">
-                        <i class="fab fa-github fa-lg"></i>
-                    </a>
-                    {% endif %}
-                    {% if site.twitter_username %}
-                    <a href="https://twitter.com/{{site.twitter_username}}" target="_blank" class="has-text-grey mr-3">
-                        <i class="fab fa-twitter fa-lg"></i>
-                    </a>
-                    {% endif %}
-                    {% if site.email %}
-                    <a href="mailto:{{site.email}}" class="has-text-grey">
-                        <i class="fas fa-envelope fa-lg"></i>
-                    </a>
-                    {% endif %}
+                <!--Newsletter & Contact-->
+                <div class="column is-4">
+                    <h5 class="footer-title has-text-white has-text-weight-bold mb-4">Stay Updated</h5>
+                    <div class="newsletter-box has-background-black-ter p-4 rounded">
+                        <p class="has-text-grey-light mb-4 is-size-7">Subscribe to get the latest posts delivered to your inbox.</p>
+                        <form class="newsletter-form">
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <input class="input is-small is-rounded" type="email" placeholder="Your email address">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-primary is-small is-rounded" type="submit">
+                                        <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="contact-info mt-5">
+                        <h6 class="has-text-grey-light is-size-7 mb-3">GET IN TOUCH</h6>
+                        {% if site.email %}
+                        <p class="mb-2">
+                            <span class="icon has-text-primary mr-2">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <a href="mailto:{{site.email}}" class="has-text-grey-light">{{site.email}}</a>
+                        </p>
+                        {% endif %}
+                        {% if site.phone %}
+                        <p class="mb-2">
+                            <span class="icon has-text-primary mr-2">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                            <a href="tel:{{site.phone}}" class="has-text-grey-light">{{site.phone}}</a>
+                        </p>
+                        {% endif %}
+                        {% if site.location %}
+                        <p class="mb-2">
+                            <span class="icon has-text-primary mr-2">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <span class="has-text-grey-light">{{site.location}}</span>
+                        </p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--Credits-->
-    <div class="has-background-light has-text-centered has-text-grey pt-4 pb-6" id="credits">
+    <!--Footer Bottom-->
+    <div class="footer-bottom has-background-black-ter py-4">
         <div class="container">
-            <p class="mb-2">
-                <i class="far fa-copyright"></i> {{ "now" | date: "%Y" }} {{site.author-name}}. All rights reserved.
-            </p>
-            <p class="is-size-7">
-                Made with <i class="fas fa-heart has-text-danger"></i> using
-                <a href="https://jekyllrb.com/" target="_blank" class="has-text-primary">Jekyll</a>
-                and
-                <a href="https://bulma.io/" target="_blank" class="has-text-primary">Bulma</a>
-            </p>
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+                <div>
+                    <p class="has-text-grey-light is-size-7">
+                        <i class="far fa-copyright"></i> {{ "now" | date: "%Y" }} {{site.author-name}}. All rights reserved.
+                    </p>
+                </div>
+                <div>
+                    <ul class="is-flex">
+                        <li class="mx-3">
+                            <a href="{{site.url}}{{site.baseurl}}/privacy" class="has-text-grey-light is-size-7">Privacy Policy</a>
+                        </li>
+                        <li class="mx-3">
+                            <a href="{{site.url}}{{site.baseurl}}/terms" class="has-text-grey-light is-size-7">Terms of Service</a>
+                        </li>
+                        <li class="mx-3">
+                            <a href="{{site.url}}{{site.baseurl}}/disclaimer" class="has-text-grey-light is-size-7">Disclaimer</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="has-text-grey-light is-size-7">
+                        Made with <i class="fas fa-heart has-text-danger mx-1"></i>
+                        using <a href="https://jekyllrb.com/" target="_blank" class="has-text-primary">Jekyll</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </footer>

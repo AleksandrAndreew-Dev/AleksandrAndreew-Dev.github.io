@@ -1,36 +1,40 @@
-<section class="section" id="about">
+<section class="section has-background-white" id="about">
   <div class="container">
+    <div class="has-text-centered mb-6">
+      <h2 class="title is-2 has-text-weight-bold">About Me</h2>
+      <p class="subtitle is-5 has-text-grey">Professional overview</p>
+    </div>
+
     <div class="columns is-vcentered">
       <div class="column is-one-third has-text-centered">
-        <figure class="image is-256x256 is-inline-block">
-          <img class="is-rounded" src="{{site.author-image}}" alt="{{site.author-name}}"
-               style="border: 4px solid white; box-shadow: var(--shadow-lg);">
-          <div class="status-indicator mt-4">
-            <span class="dot is-success"></span>
-            <span class="has-text-weight-semibold">Open to opportunities</span>
-          </div>
+        <figure class="image is-256x256 is-inline-block mb-4">
+          <img class="is-rounded has-shadow" src="{{site.author-image}}" alt="{{site.author-name}}">
         </figure>
+
+        <div class="status-indicator">
+          <span class="status-dot is-success"></span>
+          <span class="has-text-weight-semibold has-text-dark">Open to opportunities</span>
+        </div>
       </div>
 
       <div class="column">
-        <h2 class="title is-2 mb-5 has-text-weight-bold">About Me</h2>
         <div class="content is-medium">
-          <p class="is-size-5">{{site.author-about}}</p>
+          <p class="is-size-5 mb-5">{{site.author-about}}</p>
 
-          <div class="expertise-section mt-6 fade-in">
-            <h3 class="title is-4 mb-4 has-text-weight-semibold">Core Expertise</h3>
+          <div class="expertise-section">
+            <h3 class="title is-4 mb-5 has-text-weight-semibold">Core Expertise</h3>
             <div class="columns is-multiline">
               {% for skill in site.data.skills %}
               <div class="column is-half">
-                <div class="skill-item">
-                  <div class="skill-header is-flex is-justify-content-space-between mb-2">
-                    <span class="skill-name has-text-weight-semibold">{{skill.name}}</span>
-                    <span class="skill-level has-text-primary has-text-weight-bold">{{skill.level}}%</span>
+                <div class="skill-item mb-5">
+                  <div class="is-flex is-justify-content-space-between mb-2">
+                    <span class="has-text-weight-semibold">{{skill.name}}</span>
+                    <span class="has-text-primary has-text-weight-bold">{{skill.level}}%</span>
                   </div>
-                  <progress class="progress is-primary skill-progress"
-                           value="0"
-                           max="100"
-                           data-target="{{skill.level}}">
+                  <progress class="progress is-primary is-medium"
+                           value="{{skill.level}}"
+                           max="100">
+                    {{skill.level}}%
                   </progress>
                 </div>
               </div>
@@ -39,15 +43,14 @@
           </div>
         </div>
 
-        <div class="action-buttons mt-6 is-flex is-flex-wrap-wrap">
+        <div class="buttons mt-6">
           <a href="{{site.url}}{{site.baseurl}}/resume.pdf"
-             class="button is-primary is-medium mr-3 mb-3"
+             class="button is-primary is-medium"
              download>
-            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span class="icon"><i class="fas fa-download"></i></span>
             <span>Download CV</span>
           </a>
-
-          <a href="#contact" class="button is-outlined is-medium mb-3">
+          <a href="#contact" class="button is-outlined is-medium">
             <span class="icon"><i class="fas fa-calendar-alt"></i></span>
             <span>Schedule Call</span>
           </a>

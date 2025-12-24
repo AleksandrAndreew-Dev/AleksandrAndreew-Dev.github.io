@@ -1,15 +1,52 @@
-<div class="columns has-text-centered" id="blog-card">
-    <div class="column is-marginless is-paddingless is-one-third-desktop is-one-third-fullhd is-one-third-tablet">
-        <div class="image is-16by9" style="background-image: url({{post.post-image}});"></div>
+<article class="card mb-5 has-shadow-hover" id="blog-card">
+  <div class="columns is-vcentered is-mobile">
+    <div class="column is-one-third">
+      <div class="card-image">
+        <figure class="image is-16by9">
+          <img src="{{post.post-image}}" alt="{{post.title}}" loading="lazy">
+        </figure>
+      </div>
     </div>
-    <a href="{{post.url | absolute_url}}">
-        <div class="column has-text-left-desktop has-text-left-tablet">
-            <h1 class="title is-size-4-touch">{{post.title}}</h1>
-            <div class="content has-text-grey">
-                {{ post.content | truncate: 300 | strip_html | strip_newlines | strip | escape }}
-                <hr class="has-background-grey">
-                <span class="has-text-grey">Published on <span class="has-text-weight-semibold">{{ post.date | date: "%-B %d, %Y" }}</span></span> | <i class="fas fa-clock"></i> <span class="has-text-weight-semibold">{% assign words = post.content | number_of_words %}{%- unless content.size == 0 -%}{{ words | divided_by:180 }} min{% endunless %}</span> read
-            </div>
+
+    <div class="column">
+      <div class="card-content">
+        <a href="{{post.url | absolute_url}}">
+          <h3 class="title is-4 mb-3">{{post.title}}</h3>
+        </a>
+
+        <div class="content has-text-grey mb-4">
+          {{ post.content | truncate: 200 | strip_html | escape }}
         </div>
-    </a>
-</div>
+
+        <div class="level is-mobile">
+          <div class="level-left">
+            <div class="tags are-small">
+              <span class="tag is-light">
+                <i class="fas fa-calendar mr-1"></i>
+                {{ post.date | date: "%B %d, %Y" }}
+              </span>
+              <span class="tag is-light">
+                <i class="fas fa-clock mr-1"></i>
+                {% assign words = post.content | number_of_words %}
+                {% if words < 360 %}
+                  1 min
+                {% else %}
+                  {{ words | divided_by:180 }} mins
+                {% endif %}
+              </span>
+            </div>
+          </div>
+
+          <div class="level-right">
+            <a href="{{post.url | absolute_url}}" class="button is-primary is-small">
+              <span>Read More</span>
+              <span class="icon is-small">
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
