@@ -76,11 +76,6 @@ defaults:
     values:
       layout: page
 
-  - scope:
-      path: "assets/js"
-    values:
-      layout: null
-
 # Exclude
 exclude:
   - .sass-cache/
