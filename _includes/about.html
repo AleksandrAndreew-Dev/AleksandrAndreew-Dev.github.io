@@ -1,29 +1,55 @@
-<section class="hero is-fullheight has-text-centered has-background-white-ter" id="about">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-one-fifth-desktop is-one-fifth-tablet is-one-fifth-fullhd">
-                    <figure class="image">
-                        <img class="is-rounded" src="{{site.author-image}}" alt="{{site.author-name}}">
-                    </figure>
+<section class="section" id="about">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column is-one-third has-text-centered">
+        <figure class="image is-256x256 is-inline-block">
+          <img class="is-rounded" src="{{site.author-image}}" alt="{{site.author-name}}">
+          <div class="status-indicator">
+            <span class="dot is-success"></span>
+            <span>Open to opportunities</span>
+          </div>
+        </figure>
+
+        
+      </div>
+
+      <div class="column">
+        <h2 class="title is-2 mb-4">About Me</h2>
+        <div class="content is-medium">
+          <p>{{site.author-about}}</p>
+
+          <div class="expertise-section mt-5">
+            <h3 class="title is-4">Core Expertise</h3>
+            <div class="columns is-multiline">
+              {% for skill in site.data.skills %}
+              <div class="column is-half">
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name">{{skill.name}}</span>
+                    <span class="skill-level">{{skill.level}}%</span>
+                  </div>
+                  <progress class="progress is-{{skill.color}}" value="{{skill.level}}" max="100"></progress>
                 </div>
-                <div class="column has-text-left-desktop has-text-left-tablet has-text-left-fullhd has-text-left-widescreen">
-                    <p>{{site.author-about}}</p>
-                    <br>
-                    <div class="container columns is-centered">
-                        <div>
-                            <a href="{{site.url}}{{site.baseurl}}/#contact"
-                                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined">Contact
-                                Me</a>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="{{site.url}}{{site.baseurl}}/blog"
-                                class="button is-rounded is-uppercase has-text-weight-normal is-black is-outlined">Blog</a>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+              </div>
+              {% endfor %}
             </div>
+          </div>
         </div>
+
+        <div class="action-buttons mt-6">
+          <a href="{{site.url}}{{site.baseurl}}/resume.pdf"
+             class="button is-primary is-medium"
+             download>
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Download CV</span>
+          </a>
+
+          <a href="#contact" class="button is-outlined is-medium ml-3">
+            <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+            <span>Schedule Call</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

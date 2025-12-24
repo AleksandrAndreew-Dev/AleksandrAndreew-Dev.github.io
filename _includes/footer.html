@@ -1,22 +1,26 @@
 <footer id="footer">
     <!--Footer Button-->
-    <div class="container has-text-centered has-background-grey-darker" id="backtotop">
-        <a class="has-text-white" onclick="window.scroll(0,0)">BACK TO TOP</a>
+    <div class="container has-text-centered has-background-light" id="backtotop">
+        <a class="has-text-primary" onclick="window.scroll(0,0)">
+            <span class="icon"><i class="fas fa-chevron-up"></i></span>
+            <span>BACK TO TOP</span>
+        </a>
     </div>
+
     <!--Footer Main Section-->
-    <div class="has-background-grey-darker">
-        <div class="container columns">
+    <div class="has-background-light">
+        <div class="container columns py-6">
             <!--Name Section-->
             <div class="column has-text-left-desktop has-text-centered-mobile">
                 <a href="{{site.url}}{{site.baseurl}}/#about">
-                    <div class="columns">
+                    <div class="columns is-vcentered">
                         <div class="column is-one-fifth-desktop is-one-fifth-fullhd is-one-quarter-tablet">
                             <figure class="image is-64x64">
-                                <img class="is-rounded" src="{{site.author-image}}">
+                                <img class="is-rounded" src="{{site.author-image}}" alt="{{site.author-name}}">
                             </figure>
                         </div>
                         <div class="column is-marginless">
-                            <h5 class="has-text-grey-lighter">{{site.author-name}}</h5>
+                            <h5 class="has-text-primary has-text-weight-bold">{{site.author-name}}</h5>
                             <div class="content has-text-grey">
                                 <p>{{site.author-about | truncate: 75 }}</p>
                             </div>
@@ -26,32 +30,81 @@
             </div>
 
             <!--Link Section-->
-            <div class="column has-text-white">
-                <h3>More Links</h3>
+            <div class="column">
+                <h3 class="has-text-primary has-text-weight-bold mb-3">Quick Links</h3>
+                <ul>
                 {% for sitepage in site.html_pages offset: 4 %}
                 {% unless sitepage.url == '/'  limit: 2 %}
-                <li>
-                    <a href="{{sitepage.url | absolute_url}}">{{sitepage.title}}</a>
+                <li class="mb-2">
+                    <a href="{{sitepage.url | absolute_url}}" class="has-text-grey">
+                        {{sitepage.title}}
+                    </a>
                 </li>
                 {% endunless %}
                 {% endfor %}
-                <li>
-                    <a target="_blank" href="{{site.url}}{{site.baseurl}}/feed.xml">Subscribe via RSS</a>
+                <li class="mb-2">
+                    <a target="_blank" href="{{site.url}}{{site.baseurl}}/feed.xml" class="has-text-grey">
+                        Subscribe via RSS
+                    </a>
                 </li>
+                </ul>
             </div>
 
             <!--Blog-post Section-->
-            <div class="column has-text-white">
-                <h3>Recent Posts</h3>
+            <div class="column">
+                <h3 class="has-text-primary has-text-weight-bold mb-3">Recent Posts</h3>
+                <ul>
                 {% for post in site.posts offset: 0 limit:3 %}
-                <li>
-                    <a href="{{post.url | absolute_url}}">{{post.title}}</a>
+                <li class="mb-2">
+                    <a href="{{post.url | absolute_url}}" class="has-text-grey">
+                        {{post.title}}
+                    </a>
                 </li>
                 {% endfor %}
+                </ul>
+            </div>
+
+            <!--Contact Section-->
+            <div class="column">
+                <h3 class="has-text-primary has-text-weight-bold mb-3">Get In Touch</h3>
+                <div class="social-icons">
+                    {% if site.linkedin_username %}
+                    <a href="https://linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="has-text-grey mr-3">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    {% endif %}
+                    {% if site.github_username %}
+                    <a href="https://github.com/{{site.github_username}}" target="_blank" class="has-text-grey mr-3">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    {% endif %}
+                    {% if site.twitter_username %}
+                    <a href="https://twitter.com/{{site.twitter_username}}" target="_blank" class="has-text-grey mr-3">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    {% endif %}
+                    {% if site.email %}
+                    <a href="mailto:{{site.email}}" class="has-text-grey">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
-    <div class="has-background-black has-text-centered has-text-white" id="credits">
-        <i class="far fa-copyright"></i> {{ "now" | date: "%Y" }} | <a href="https://github.com/thedevslot/WhatATheme" target="_blank" rel="noopener noreferrer">WhatATheme</a> - A Theme made with <i class="fas fa-heart has-text-danger"></i> by <a href="https://www.twitter.com/thedevslot" target="_blank" rel="noopener noreferrer">TheDevsLot</a> Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+
+    <!--Credits-->
+    <div class="has-background-light has-text-centered has-text-grey pt-4 pb-6" id="credits">
+        <div class="container">
+            <p class="mb-2">
+                <i class="far fa-copyright"></i> {{ "now" | date: "%Y" }} {{site.author-name}}. All rights reserved.
+            </p>
+            <p class="is-size-7">
+                Made with <i class="fas fa-heart has-text-danger"></i> using
+                <a href="https://jekyllrb.com/" target="_blank" class="has-text-primary">Jekyll</a>
+                and
+                <a href="https://bulma.io/" target="_blank" class="has-text-primary">Bulma</a>
+            </p>
+        </div>
     </div>
 </footer>

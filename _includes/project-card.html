@@ -1,17 +1,64 @@
-<div class="columns is-centered is-multiline is-mobile">
+<div class="columns is-multiline is-centered is-variable is-4">
   {% for project in site.data.projects %}
-    <div class="column has-text-centered is-paddingless is-marginless is-one-third-widescreen is-one-third-desktop is-one-fifth-fullhd is-one-third-tablet is-two-fifths-mobile is-three-quarters-touch"
-      id="project-card">
-      <a href="{{project.link}}" target="_blank">
-      <div class="has-background-black card">
-        <figure class="image is-3by1" style="background-image: url({{project.image}});">
+  <div class="column is-one-third-desktop is-half-tablet">
+    <div class="project-card card interactive-card">
+      <div class="card-image">
+        <figure class="image is-16by9">
+          <img src="{{project.image}}" alt="{{project.name}}" loading="lazy">
+          <div class="image-overlay"></div>
+          {% if project.category %}
+          <span class="project-category tag is-{{project.category == 'volunteer' ? 'success' : 'primary'}} is-rounded">
+            {{project.category | capitalize}}
+          </span>
+          {% endif %}
         </figure>
-        <div class="card-content">
-          <h1 class="title has-text-white is-size-4">{{ project.name }}</h1>
-          <p class="has-text-white has-text-weight-light content">{{ project.description | truncate: 80}}</p>
-        </div>
       </div>
-      </a>
+
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <h3 class="title is-5 mb-2 has-text-primary">{{project.name}}</h3>
+            <p class="subtitle is-6 has-text-grey mb-3">{{project.description}}</p>
+          </div>
+        </div>
+
+        {% if project.technologies %}
+        <div class="tech-tags mb-4">
+          {% for tech in project.technologies %}
+          <span class="tag is-light is-rounded has-text-grey">{{tech}}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if project.results %}
+        <div class="project-results">
+          <h4 class="is-size-6 has-text-weight-semibold mb-2 has-text-dark">Key Results:</h4>
+          <ul class="has-text-grey">
+            {% for result in project.results %}
+            <li>{{result}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+
+      <footer class="card-footer">
+        {% if project.link %}
+        <a href="{{project.link}}" target="_blank"
+           class="card-footer-item has-text-primary has-text-weight-semibold">
+          <span class="icon"><i class="fas fa-external-link-alt"></i></span>
+          <span>Live Demo</span>
+        </a>
+        {% endif %}
+        {% if project.github %}
+        <a href="{{project.github}}" target="_blank"
+           class="card-footer-item has-text-grey">
+          <span class="icon"><i class="fab fa-github"></i></span>
+          <span>Code</span>
+        </a>
+        {% endif %}
+      </footer>
     </div>
+  </div>
   {% endfor %}
 </div>

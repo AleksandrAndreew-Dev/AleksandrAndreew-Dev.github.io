@@ -9,7 +9,9 @@ layout: compress
 <body>
   {% include navbar.html %}
   {% include showcase.html %}
-  {% include about.html %}
+
+  {% include about-cards.html %}
+   {% include about.html %}
   {% include contact.html %}
   <!--Footer begins here-->
   {% include footer.html %}
@@ -17,7 +19,7 @@ layout: compress
 <script>
   var navItems = document.getElementsByClassName('navbar-item');
   var heroes = document.getElementsByClassName('hero');
-  const viewOffset = 200; 
+  const viewOffset = 200;
 
   window.addEventListener("scroll", function (event) {
     var scroll = this.scrollY;

@@ -1,11 +1,14 @@
-<nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation" id="navbar">
+<nav class="navbar is-light is-fixed-top" role="navigation" aria-label="main navigation" id="navbar">
     <div class="container">
-
-        <!-- logo or branding image on left side -->
         <div class="navbar-brand">
-            <a class="navbar-item"
+            <a class="navbar-item has-text-weight-bold has-text-primary"
                 href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
-                <strong>{{site.title}}</strong>
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fas fa-code"></i>
+                    </span>
+                    <span>{{site.title}}</span>
+                </span>
             </a>
             <div class="navbar-burger" data-target="navbar-menu">
                 <span></span>
@@ -14,22 +17,28 @@
             </div>
         </div>
 
-        <!-- children of navbar-menu must be navbar-start and/or navbar-end -->
-        <div class="navbar-menu has-background-black" id="navbar-menu">
-            <!-- navbar items | left side -->
-            <!-- <div class="navbar-start">
-            </div> -->
-            <!-- navbar items | right side -->
+        <div class="navbar-menu" id="navbar-menu">
             <div class="navbar-end">
                 <a class="navbar-item {% if page.layout == 'default' %}is-active{% endif %}"
-                    href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">HOME</a>
-                <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#about">ABOUT</a>
-                <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#contact">CONTACT</a>
+                    href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span>Home</span>
+                </a>
+                <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#about">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span>About</span>
+                </a>
+                <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#projects">
+                    <span class="icon"><i class="fas fa-briefcase"></i></span>
+                    <span>Projects</span>
+                </a>
                 <a class="navbar-item {% if page.layout == 'blog' %}is-active{% endif %}"
-                    href="{{site.url}}{{site.baseurl}}/blog">BLOG</a>
+                    href="{{site.url}}{{site.baseurl}}/blog">
+                    <span class="icon"><i class="fas fa-blog"></i></span>
+                    <span>Blog</span>
+                </a>
                 {% include dropdown.html %}
             </div>
-
         </div>
     </div>
 </nav>
