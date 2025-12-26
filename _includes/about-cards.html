@@ -1,63 +1,90 @@
-<section id="about-cards" class="section">
+<section id="about-cards" class="section" aria-labelledby="about-heading">
   <div class="container">
-    <div class="columns is-vcentered is-variable is-6 about-cards-row">
-      <div class="column is-narrow-desktop is-3-tablet is-12-mobile has-text-centered" aria-hidden="false">
-        <figure class="image is-128x128 is-inline-block about-cards-photo">
-          <img class="is-rounded" src="{{ site.author-image }}" alt="{{ site.author-name }} — photo">
-        </figure>
+    <h2 id="about-heading" class="title is-4 has-text-centered">Чем могу помочь</h2>
+
+    <div class="columns  is-variable is-6 mt-5">
+
+      <!-- Card: Business -->
+      <div class="column is-one-third-tablet is-full-mobile">
+        <article class="card has-shadow" role="region" aria-labelledby="card-business-title">
+          <div class="card-content">
+            <h3 id="card-business-title" class="title is-5">Для бизнеса</h3>
+            <p class="content has-text-grey">
+              Разрабатываю веб‑приложения и MVP, провожу интеграции и оптимизацию производительности. Беру на себя полный цикл: от архитектуры до релиза и поддержки.
+            </p>
+
+            <div class="tags" aria-hidden="true">
+              <span class="tag is-light">Python</span>
+              <span class="tag is-light">JavaScript</span>
+              <span class="tag is-light">Cloud</span>
+            </div>
+
+            <div class="mt-4">
+              <a href="{{ site.url }}{{ site.baseurl }}/#contact" class="button is-primary is-rounded" aria-label="Связаться по бизнес предложению">
+                Обсудить проект
+              </a>
+              <a href="mailto:{{ site.email }}?subject=Business%20proposal" class="button is-outlined is-rounded ml-2" aria-label="Отправить email для бизнес предложения" rel="noopener">
+                Написать email
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
 
-      <div class="column is-flex-grow-1">
-        <div class="columns is-mobile is-variable is-4 about-cards-right">
-          <div class="column is-half-tablet is-full-mobile">
-            <article class="card has-shadow" role="region" aria-labelledby="business-title">
-              <div class="card-content">
-                <h3 id="business-title" class="title is-5">Открыт для предложений для бизнеса</h3>
-                <p class="content has-text-grey">
-                  Принимаю коммерческие проекты: веб‑приложения, MVP, интеграции и оптимизация. Быстро встраиваюсь в команду и довожу продукт до продакшена.
-                </p>
-                <div class="tags">
-                  <span class="tag is-light">Python</span>
-                  <span class="tag is-light">Javascript</span>
-                  <span class="tag is-light">HTML</span>
-                </div>
-                <div class="mt-4">
-                  <a href="{{ site.url }}{{ site.baseurl }}/#contact" class="button is-primary is-rounded" aria-label="Связаться по бизнес предложению">
-                    Связаться по бизнесу
-                  </a>
-                  <a href="mailto:{{ site.email }}?subject=Business%20proposal" class="button is-outlined is-rounded ml-2" aria-label="Отправить email для бизнес предложения">
-                    Написать email
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
+      <!-- Card: Volunteer -->
+      <div class="column is-one-third-tablet is-full-mobile">
+        <article class="card has-shadow" role="region" aria-labelledby="card-volunteer-title">
+          <div class="card-content">
+            <h3 id="card-volunteer-title" class="title is-5">Волонтёрство</h3>
+            <p class="content has-text-grey">
+              Помогаю НКО и сообществам: автоматизация процессов, аналитика данных, наставничество. Ориентируюсь на проекты с измеримым социальным эффектом.
+            </p>
 
-          <div class="column is-half-tablet is-full-mobile">
-            <article class="card has-shadow" role="region" aria-labelledby="volunteer-title">
-              <div class="card-content">
-                <h3 id="volunteer-title" class="title is-5">Волонтёрство</h3>
-                <p class="content has-text-grey">
-                  Готов помогать НКО и сообществам: автоматизация процессов, аналитика, наставничество. Предпочитаю проекты с социальным эффектом.
-                </p>
-                <div class="tags">
-                  <span class="tag is-light">NGO</span>
-                  <span class="tag is-light">Automation</span>
-                  <span class="tag is-light">Mentoring</span>
-                </div>
-                <div class="mt-4">
-                  <a href="{{ site.url }}{{ site.baseurl }}/#contact" class="button is-link is-rounded" aria-label="Связаться по волонтерскому предложению">
-                    Предложить волонтёрство
-                  </a>
-                  <a href="mailto:{{ site.email }}?subject=Volunteer%20opportunity" class="button is-outlined is-rounded ml-2" aria-label="Отправить email для волонтерского предложения">
-                    Написать email
-                  </a>
-                </div>
-              </div>
-            </article>
+            <div class="tags" aria-hidden="true">
+              <span class="tag is-light">NGO</span>
+              <span class="tag is-light">Automation</span>
+              <span class="tag is-light">Mentoring</span>
+            </div>
+
+            <div class="mt-4">
+              <a href="{{ site.url }}{{ site.baseurl }}/#contact" class="button is-link is-rounded" aria-label="Связаться по волонтерскому предложению">
+                Предложить проект
+              </a>
+              <a href="mailto:{{ site.email }}?subject=Volunteer%20opportunity" class="button is-outlined is-rounded ml-2" aria-label="Отправить email для волонтерского предложения" rel="noopener">
+                Написать email
+              </a>
+            </div>
           </div>
-        </div>
+        </article>
       </div>
+
+      <!-- Card: Individuals -->
+      <div class="column is-one-third-tablet is-full-mobile">
+        <article class="card has-shadow" role="region" aria-labelledby="card-individual-title">
+          <div class="card-content">
+            <h3 id="card-individual-title" class="title is-5">Для частных лиц</h3>
+            <p class="content has-text-grey">
+              Консультации по архитектуре, прототипирование и разработка MVP. Помогаю превратить идею в работающий продукт с минимальными рисками.
+            </p>
+
+            <div class="tags" aria-hidden="true">
+              <span class="tag is-light">Prototyping</span>
+              <span class="tag is-light">MVP</span>
+              <span class="tag is-light">Consulting</span>
+            </div>
+
+            <div class="mt-4">
+              <a href="{{ site.url }}{{ site.baseurl }}/#contact" class="button is-primary is-rounded" aria-label="Связаться по индивидуальному предложению">
+                Обсудить идею
+              </a>
+              <a href="mailto:{{ site.email }}?subject=Project%20idea" class="button is-outlined is-rounded ml-2" aria-label="Отправить email для индивидуального предложения" rel="noopener">
+                Написать email
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
     </div>
   </div>
 </section>

@@ -1,58 +1,42 @@
 <section class="section has-background-white" id="about">
   <div class="container">
     <div class="has-text-centered mb-6">
-      <h2 class="title is-2 has-text-weight-bold">About Me</h2>
-      <p class="subtitle is-5 has-text-grey">Professional overview</p>
+      <h2 class="title is-2 has-text-weight-bold">Обо мне</h2> <p class="subtitle is-5 has-text-grey">Профессиональный обзор</p>
     </div>
 
     <div class="columns is-vcentered">
       <div class="column is-one-third has-text-centered">
         <figure class="image is-256x256 is-inline-block mb-4">
-          <img class="is-rounded has-shadow" src="{{site.author-image}}" alt="{{site.author-name}}">
+          <img class="is-rounded has-shadow" src="{{ site.author-image }}" alt="{{ site.author-name }}">
         </figure>
 
         <div class="status-indicator">
           <span class="status-dot is-success"></span>
-          <span class="has-text-weight-semibold has-text-dark">Open to opportunities</span>
+          <span class="has-text-weight-semibold has-text-dark">Открыт к предложениям</span>
         </div>
       </div>
 
       <div class="column">
         <div class="content is-medium">
-          <p class="is-size-5 mb-5">{{site.author-about}}</p>
+          <p class="is-size-5 mb-5">{{ site.author-about }}</p>
 
-          <div class="expertise-section">
-            <h3 class="title is-4 mb-5 has-text-weight-semibold">Core Expertise</h3>
-            <div class="columns is-multiline">
+          <div class="expertise-section mt-5">
+            <h3 class="title is-4 mb-4 has-text-weight-semibold">Навыки и экспертиза</h3>
+            <div class="tags are-medium">
               {% for skill in site.data.skills %}
-              <div class="column is-half">
-                <div class="skill-item mb-5">
-                  <div class="is-flex is-justify-content-space-between mb-2">
-                    <span class="has-text-weight-semibold">{{skill.name}}</span>
-                    <span class="has-text-primary has-text-weight-bold">{{skill.level}}%</span>
-                  </div>
-                  <progress class="progress is-primary is-medium"
-                           value="{{skill.level}}"
-                           max="100">
-                    {{skill.level}}%
-                  </progress>
-                </div>
-              </div>
+              <span class="tag is-primary is-light">{{ skill.name }}</span>
               {% endfor %}
             </div>
           </div>
         </div>
 
         <div class="buttons mt-6">
-          <a href="{{site.url}}{{site.baseurl}}/resume.pdf"
-             class="button is-primary is-medium"
-             download>
+          <a href="{{ site.baseurl }}/resume.pdf" class="button is-primary is-medium" download>
             <span class="icon"><i class="fas fa-download"></i></span>
-            <span>Download CV</span>
+            <span>Скачать CV</span>
           </a>
           <a href="#contact" class="button is-outlined is-medium">
-            <span class="icon"><i class="fas fa-calendar-alt"></i></span>
-            <span>Schedule Call</span>
+            <span>Связаться</span>
           </a>
         </div>
       </div>

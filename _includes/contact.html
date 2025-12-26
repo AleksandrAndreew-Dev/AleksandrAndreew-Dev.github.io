@@ -6,9 +6,9 @@
         </div>
 
         <div class="columns is-centered is-multiline">
-            {% unless site.facebook_username == %}
+            {% unless site.facebook_username == nil %}
             <div class="column is-4-desktop is-6-tablet">
-                <a id="contact-button" href="https://m.me/{{site.facebook_username}}"
+                <a id="contact-button-fb" href="https://m.me/{{site.facebook_username}}"
                     class="button is-fullwidth is-primary is-rounded is-medium"
                     target="_blank">
                     <span class="icon"><i class="fab fa-facebook-messenger"></i></span>
@@ -17,9 +17,9 @@
             </div>
             {% endunless %}
 
-            {% unless site.email == %}
+            {% unless site.email == nil %}
             <div class="column is-4-desktop is-6-tablet">
-                <a id="contact-button" href="mailto:{{site.email}}"
+                <a id="contact-button-email" href="mailto:{{site.email}}"
                     class="button is-fullwidth is-primary is-outlined is-rounded is-medium"
                     target="_blank">
                     <span class="icon"><i class="fas fa-envelope"></i></span>
@@ -28,9 +28,9 @@
             </div>
             {% endunless %}
 
-            {% unless site.twitter_username == %}
+            {% unless site.twitter_username == nil %}
             <div class="column is-4-desktop is-6-tablet">
-                <a id="contact-button" href="https://www.twitter.com/intent/tweet?screen_name={{site.twitter_username}}"
+                <a id="contact-button-tw" href="https://www.twitter.com/intent/tweet?screen_name={{site.twitter_username}}"
                     class="button is-fullwidth is-link is-rounded is-medium"
                     target="_blank">
                     <span class="icon"><i class="fab fa-twitter"></i></span>
@@ -43,30 +43,20 @@
         <hr class="my-6">
 
         <div class="has-text-centered">
-            <h3 class="title is-4 mb-5">Find me on social media</h3>
+            <h3 class="title is-4 mb-5">Also find me on</h3>
             <div class="social-icons is-size-3">
-                {% unless site.facebook_username == %}
-                <a href="http://www.facebook.com/{{site.facebook_username}}" target="_blank" class="mx-3">
-                    <i class="fab fa-facebook has-text-dark"></i>
-                </a>
-                {% endunless %}
-                {% unless site.twitter_username == %}
-                <a href="https://twitter.com/intent/user?screen_name={{site.twitter_username}}" target="_blank" class="mx-3">
-                    <i class="fab fa-twitter has-text-dark"></i>
-                </a>
-                {% endunless %}
-                {% unless site.instagram_username == %}
-                <a href="http://www.instagram.com/{{site.instagram_username}}" target="_blank" class="mx-3">
+                {% unless site.instagram_username == nil %}
+                <a href="http://www.instagram.com/{{site.instagram_username}}" target="_blank" class="mx-3" aria-label="Instagram">
                     <i class="fab fa-instagram has-text-dark"></i>
                 </a>
                 {% endunless %}
-                {% unless site.linkedin_username == %}
-                <a href="http://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="mx-3">
+                {% unless site.linkedin_username == nil %}
+                <a href="http://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="mx-3" aria-label="LinkedIn">
                     <i class="fab fa-linkedin has-text-dark"></i>
                 </a>
                 {% endunless %}
-                {% unless site.github_username == %}
-                <a href="http://www.github.com/{{site.github_username}}" target="_blank" class="mx-3">
+                {% unless site.github_username == nil %}
+                <a href="http://www.github.com/{{site.github_username}}" target="_blank" class="mx-3" aria-label="GitHub">
                     <i class="fab fa-github has-text-dark"></i>
                 </a>
                 {% endunless %}

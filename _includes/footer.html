@@ -20,13 +20,13 @@
                     <div class="footer-brand mb-5">
                         <div class="is-flex is-align-items-center mb-4">
                             <div class="footer-logo mr-3">
-                                <figure class="image is-64x64">
-                                    <img class="is-rounded" src="{{site.author-image}}" alt="{{site.author-name}}">
-                                </figure>
-                            </div>
+    <div class="is-size-3 has-text-white has-text-weight-bold" style="border: 2px solid white; padding: 5px 10px;">
+        A.A.
+    </div>
+</div>
                             <div>
                                 <h4 class="has-text-white has-text-weight-bold is-size-5">{{site.author-name}}</h4>
-                                <p class="has-text-grey-light is-size-7">{{site.author-role | default: "Professional" }}</p>
+                                <p class="has-text-grey-light is-size-14">Full-stack Developer | Volunteer</p>
                             </div>
                         </div>
                         <p class="has-text-grey-light is-size-7">{{site.author-about | truncate: 120 }}</p>
@@ -109,21 +109,7 @@
                 <!--Newsletter & Contact-->
                 <div class="column is-4">
                     <h5 class="footer-title has-text-white has-text-weight-bold mb-4">Stay Updated</h5>
-                    <div class="newsletter-box has-background-black-ter p-4 rounded">
-                        <p class="has-text-grey-light mb-4 is-size-7">Subscribe to get the latest posts delivered to your inbox.</p>
-                        <form class="newsletter-form">
-                            <div class="field has-addons">
-                                <div class="control is-expanded">
-                                    <input class="input is-small is-rounded" type="email" placeholder="Your email address">
-                                </div>
-                                <div class="control">
-                                    <button class="button is-primary is-small is-rounded" type="submit">
-                                        <span class="icon"><i class="fas fa-paper-plane"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+
 
                     <div class="contact-info mt-5">
                         <h6 class="has-text-grey-light is-size-7 mb-3">GET IN TOUCH</h6>
@@ -166,19 +152,7 @@
                         <i class="far fa-copyright"></i> {{ "now" | date: "%Y" }} {{site.author-name}}. All rights reserved.
                     </p>
                 </div>
-                <div>
-                    <ul class="is-flex">
-                        <li class="mx-3">
-                            <a href="{{site.url}}{{site.baseurl}}/privacy" class="has-text-grey-light is-size-7">Privacy Policy</a>
-                        </li>
-                        <li class="mx-3">
-                            <a href="{{site.url}}{{site.baseurl}}/terms" class="has-text-grey-light is-size-7">Terms of Service</a>
-                        </li>
-                        <li class="mx-3">
-                            <a href="{{site.url}}{{site.baseurl}}/disclaimer" class="has-text-grey-light is-size-7">Disclaimer</a>
-                        </li>
-                    </ul>
-                </div>
+                <div> <ul class="footer-legal is-flex is-align-items-center" role="navigation" aria-label="Footer legal links"> <li class="footer-legal-item"><a href="{{site.url}}{{site.baseurl}}/privacy" class="has-text-grey-light is-size-7">Privacy Policy</a></li> <li class="footer-legal-item"><a href="{{site.url}}{{site.baseurl}}/terms" class="has-text-grey-light is-size-7">Terms of Service</a></li> <li class="footer-legal-item"><a href="{{site.url}}{{site.baseurl}}/disclaimer" class="has-text-grey-light is-size-7">Disclaimer</a></li> </ul> </div>
                 <div>
                     <p class="has-text-grey-light is-size-7">
                         Made with <i class="fas fa-heart has-text-danger mx-1"></i>

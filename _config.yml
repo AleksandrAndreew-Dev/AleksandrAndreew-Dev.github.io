@@ -2,23 +2,24 @@
 markdown: kramdown
 
 # URL of the Site
-url: ''
+url: ""
 # Base URL of the Site (i.e., Name of the Repository in which the Site is hosted)
 baseurl:
 
 # Title of the Site
-title: What A Theme
+
+title: Aleksandr Andreew | Developer |  Volunteer
 # Description of the Site
-description: A customizable Jekyll portfolio theme
+description: Make Ideas Come True
 # URL of Image of the Site
-site-image: /WhatATheme/assets/images/meta.jpg
+siteimage: background.png
 # Keywords of the Site
 site-keywords: Site, Template, Theme
 # URL for the Image of custom Favicon
 favicon-url:
 
 # URL of the Image of Custom Hero Image (i.e., the image in the background of the very first section of the Homepage)
-heroimage: https://images.pexels.com/photos/220444/pexels-photo-220444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+heroimage: /assets/images/background.png
 
 # Social Media and Contact
 # If you don't want to use any icon, you can leave them blank.
@@ -26,15 +27,10 @@ email: aleksandrandrph@gmail.com
 facebook_username: thedevslot
 twitter_username: thedevslot
 linkedin_username: thedevslot
-github_username:  thedevslot
-
-
-
-
-
+github_username: thedevslot
 
 # Name of the Author
-author-name: Aleksandr
+author-name: Aleksandr Andreew
 # URL for the Image of the Author
 author-image: assets/images/Aleksandr.jpg
 # 60 Words About the Author
@@ -61,18 +57,16 @@ compress_html:
 
 # Defaults
 defaults:
-  -
-    scope:
-      type: 'posts'
+  - scope:
+      type: "posts"
     values:
       layout: post
       post-image: ""
       description: ""
       tags:
         - ""
-  -
-    scope:
-      type: 'pages'
+  - scope:
+      type: "pages"
     values:
       layout: page
 
