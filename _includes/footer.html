@@ -1,162 +1,135 @@
 <footer id="footer" class="has-background-black has-text-light">
-    <!--Back to Top Button-->
     <div class="back-to-top-wrapper has-background-black-dark py-4">
         <div class="container has-text-centered">
-            <button class="back-to-top button is-primary is-rounded is-outlined is-small" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <button class="back-to-top button is-primary is-rounded is-outlined is-small hover-lift"
+                    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                    aria-label="Back to top">
                 <span class="icon">
                     <i class="fas fa-chevron-up"></i>
                 </span>
-                <span>BACK TO TOP</span>
+                <span class="is-uppercase has-text-weight-bold">BACK TO TOP</span>
             </button>
         </div>
     </div>
 
-    <!--Main Footer Content-->
     <div class="footer-main has-background-black py-6">
         <div class="container">
             <div class="columns is-variable is-5">
-                <!--About Section-->
-                <div class="column is-3">
+
+                <div class="column is-4">
                     <div class="footer-brand mb-5">
                         <div class="is-flex is-align-items-center mb-4">
                             <div class="footer-logo mr-3">
-    <div class="is-size-3 has-text-white has-text-weight-bold" style="border: 2px solid white; padding: 5px 10px;">
-        A.A.
-    </div>
-</div>
+                                <div class="is-size-3 has-text-white has-text-weight-bold"
+                                     style="border: 2px solid white; padding: 5px 12px; border-radius: 4px; line-height: 1;">
+                                    A.A.
+                                </div>
+                            </div>
                             <div>
-                                <h4 class="has-text-white has-text-weight-bold is-size-5">{{site.author-name}}</h4>
-                                <p class="has-text-grey-light is-size-14">Full-stack Developer | Volunteer</p>
+                                <h4 class="has-text-white has-text-weight-bold is-size-5 mb-0">{{site.author-name}}</h4>
+                                <p class="has-text-primary is-size-7 mb-0">Full-stack Developer | Volunteer</p>
                             </div>
                         </div>
-                        <p class="has-text-grey-light is-size-7">{{site.author-about | truncate: 120 }}</p>
+                        <p class="has-text-grey-light is-size-7 line-height-medium">
+                            {{ site.author-about | truncate: 150 }}
+                        </p>
                     </div>
-                    <div class="social-links mt-4">
+
+                    <div class="social-links mt-5 is-flex is-align-items-center">
                         {% if site.email %}
-                        <a href="mailto:{{site.email}}" class="button is-dark is-small is-rounded mr-2 mb-2">
-                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                        <a href="mailto:{{site.email}}" class="social-icon-link mr-4" title="Email: {{site.email}}" aria-label="Email">
+                            <img src="/assets/images/social/gmail-icon-logo-svgrepo-com.svg" alt="Email" style="width: 24px; height: 24px;">
                         </a>
                         {% endif %}
+
                         {% if site.linkedin_username %}
-                        <a href="https://linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="button is-dark is-small is-rounded mr-2 mb-2">
-                            <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+                        <a href="https://linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="social-icon-link mr-4" title="LinkedIn" aria-label="LinkedIn">
+                            <img src="/assets/images/social/linkedin-svgrepo-com.svg" alt="LinkedIn" style="width: 24px; height: 24px;">
                         </a>
                         {% endif %}
+
+                        {% if site.telegram_username %}
+                        <a href="https://t.me/{{site.telegram_username}}" target="_blank" class="social-icon-link mr-4" title="Telegram" aria-label="Telegram">
+                            <img src="/assets/images/social/telegram-svgrepo-com.svg" alt="Telegram" style="width: 24px; height: 24px;">
+                        </a>
+                        {% endif %}
+
                         {% if site.github_username %}
-                        <a href="https://github.com/{{site.github_username}}" target="_blank" class="button is-dark is-small is-rounded mr-2 mb-2">
-                            <span class="icon"><i class="fab fa-github"></i></span>
-                        </a>
-                        {% endif %}
-                        {% if site.twitter_username %}
-                        <a href="https://twitter.com/{{site.twitter_username}}" target="_blank" class="button is-dark is-small is-rounded mr-2 mb-2">
-                            <span class="icon"><i class="fab fa-twitter"></i></span>
+                        <a href="https://github.com/{{site.github_username}}" target="_blank" class="social-icon-link" title="GitHub" aria-label="GitHub">
+                            <img src="/assets/images/social/github-outline-svgrepo-com(2).svg" alt="GitHub" style="width: 24px; height: 24px;">
                         </a>
                         {% endif %}
                     </div>
                 </div>
 
-                <!--Quick Links-->
-                <div class="column is-2">
-                    <h5 class="footer-title has-text-white has-text-weight-bold mb-4">Quick Links</h5>
+                <div class="column is-2 is-offset-1">
+                    <h5 class="footer-title has-text-white has-text-weight-bold mb-5">Quick Links</h5>
                     <ul class="footer-links">
+                        <li class="mb-3">
+                            <a href="{{ '/' | absolute_url }}" class="has-text-grey-light hover-primary">Home</a>
+                        </li>
                         {% for sitepage in site.html_pages offset: 4 limit: 4 %}
-                        {% unless sitepage.url == '/' %}
-                        <li class="mb-3">
-                            <a href="{{sitepage.url | absolute_url}}" class="has-text-grey-light hover-primary">
-                                <span class="icon is-small">
-                                    <i class="fas fa-chevron-right fa-xs"></i>
-                                </span>
-                                {{sitepage.title}}
-                            </a>
-                        </li>
-                        {% endunless %}
+                            {% unless sitepage.url == '/' %}
+                            <li class="mb-3">
+                                <a href="{{sitepage.url | absolute_url}}" class="has-text-grey-light hover-primary">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-chevron-right fa-xs"></i>
+                                    </span>
+                                    {{sitepage.title}}
+                                </a>
+                            </li>
+                            {% endunless %}
                         {% endfor %}
-                        <li class="mb-3">
-                            <a href="{{site.url}}{{site.baseurl}}/sitemap.xml" class="has-text-grey-light hover-primary">
-                                <span class="icon is-small">
-                                    <i class="fas fa-sitemap fa-xs"></i>
-                                </span>
-                                Sitemap
-                            </a>
-                        </li>
                     </ul>
                 </div>
 
-                <!--Recent Posts-->
-                <div class="column is-3">
-                    <h5 class="footer-title has-text-white has-text-weight-bold mb-4">Recent Posts</h5>
+                <div class="column is-4">
+                    <h5 class="footer-title has-text-white has-text-weight-bold mb-5">Recent Posts</h5>
                     <ul class="footer-posts">
-                        {% for post in site.posts offset: 0 limit:3 %}
+                        {% for post in site.posts limit: 2 %}
                         <li class="mb-4">
-                            <a href="{{post.url | absolute_url}}" class="is-flex is-align-items-center">
+                            <a href="{{ post.url | absolute_url }}" class="is-flex is-align-items-start">
                                 {% if post.image %}
                                 <div class="post-thumbnail mr-3">
                                     <figure class="image is-48x48">
-                                        <img src="{{post.image}}" alt="{{post.title}}" class="is-rounded" style="object-fit: cover;">
+                                        <img src="{{ post.image }}" alt="{{ post.title }}" class="is-rounded" style="object-fit: cover; border: 1px solid #333;">
                                     </figure>
                                 </div>
                                 {% endif %}
                                 <div>
-                                    <h6 class="has-text-white is-size-7 mb-1">{{post.title | truncate: 50}}</h6>
-                                    <p class="has-text-grey-light is-size-8">{{post.date | date: "%b %d, %Y"}}</p>
+                                    <h6 class="has-text-white is-size-7 mb-1 hover-text-primary transition-3">{{ post.title | truncate: 50 }}</h6>
+                                    <p class="has-text-grey-light is-size-8">{{ post.date | date: "%b %d, %Y" }}</p>
                                 </div>
                             </a>
                         </li>
                         {% endfor %}
                     </ul>
-                </div>
-
-                <!--Newsletter & Contact-->
-                <div class="column is-4">
-                    <h5 class="footer-title has-text-white has-text-weight-bold mb-4">Stay Updated</h5>
-
-
-                    <div class="contact-info mt-5">
-                        <h6 class="has-text-grey-light is-size-7 mb-3">GET IN TOUCH</h6>
-                        {% if site.email %}
-                        <p class="mb-2">
-                            <span class="icon has-text-primary mr-2">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            <a href="mailto:{{site.email}}" class="has-text-grey-light">{{site.email}}</a>
-                        </p>
-                        {% endif %}
-                        {% if site.phone %}
-                        <p class="mb-2">
-                            <span class="icon has-text-primary mr-2">
-                                <i class="fas fa-phone"></i>
-                            </span>
-                            <a href="tel:{{site.phone}}" class="has-text-grey-light">{{site.phone}}</a>
-                        </p>
-                        {% endif %}
-                        {% if site.location %}
-                        <p class="mb-2">
-                            <span class="icon has-text-primary mr-2">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            <span class="has-text-grey-light">{{site.location}}</span>
-                        </p>
-                        {% endif %}
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--Footer Bottom-->
-    <div class="footer-bottom has-background-black-ter py-4">
+    <div class="footer-bottom has-background-black-ter py-5">
         <div class="container">
-            <div class="is-flex is-justify-content-space-between is-align-items-center">
-                <div>
-                    <p class="has-text-grey-light is-size-7">
+            <div class="columns is-vcentered is-mobile is-multiline">
+                <div class="column is-12-mobile is-4-tablet">
+                    <p class="has-text-grey-light is-size-7 has-text-centered-mobile">
                         <i class="far fa-copyright"></i> {{ "now" | date: "%Y" }} {{site.author-name}}. All rights reserved.
                     </p>
                 </div>
-                <div> <ul class="footer-legal is-flex is-align-items-center" role="navigation" aria-label="Footer legal links"> <li class="footer-legal-item"><a href="{{site.url}}{{site.baseurl}}/privacy" class="has-text-grey-light is-size-7">Privacy Policy</a></li> <li class="footer-legal-item"><a href="{{site.url}}{{site.baseurl}}/terms" class="has-text-grey-light is-size-7">Terms of Service</a></li> <li class="footer-legal-item"><a href="{{site.url}}{{site.baseurl}}/disclaimer" class="has-text-grey-light is-size-7">Disclaimer</a></li> </ul> </div>
-                <div>
+
+                <div class="column is-12-mobile is-4-tablet">
+                    <div class="footer-legal-links is-flex is-justify-content-center">
+                        <a href="{{site.url}}{{site.baseurl}}/privacy" class="has-text-grey is-size-7 mx-2 hover-white">Privacy Policy</a>
+                        <span class="has-text-grey-darker">|</span>
+                        <a href="{{site.url}}{{site.baseurl}}/sitemap.xml" class="has-text-grey is-size-7 mx-2 hover-white">Sitemap</a>
+                    </div>
+                </div>
+
+                <div class="column is-12-mobile is-4-tablet has-text-right-tablet has-text-centered-mobile">
                     <p class="has-text-grey-light is-size-7">
                         Made with <i class="fas fa-heart has-text-danger mx-1"></i>
-                        using <a href="https://jekyllrb.com/" target="_blank" class="has-text-primary">Jekyll</a>
+                        using <a href="https://jekyllrb.com/" target="_blank" class="has-text-primary has-text-weight-bold">Jekyll</a>
                     </p>
                 </div>
             </div>
