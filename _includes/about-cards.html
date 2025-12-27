@@ -1,85 +1,94 @@
 <section id="about-cards" class="section" aria-labelledby="about-heading">
   <div class="container">
-    <h2 id="about-heading" class="title is-4 has-text-centered">Чем могу помочь</h2>
+    <div class="has-text-centered mb-6">
+      <h2 id="about-heading" class="title is-2 has-text-weight-bold">How We Can Collaborate</h2>
+      <p class="subtitle is-5 has-text-grey">Tailored solutions for different needs</p>
+    </div>
 
-    <div class="columns  is-variable is-6 mt-5">
+    <div class="columns is-variable is-4">
 
-      <!-- Card: Business -->
-      <div class="column is-one-third-tablet is-full-mobile">
-        <article class="card has-shadow" role="region" aria-labelledby="card-business-title">
+      <div class="column is-4">
+        <article class="card fade-up" role="region">
           <div class="card-content">
-            <h3 id="card-business-title" class="title is-5">Для бизнеса</h3>
-            <p class="content has-text-grey">
-              Разрабатываю веб‑приложения и MVP, провожу интеграции и оптимизацию производительности. Беру на себя полный цикл: от архитектуры до релиза и поддержки.
-            </p>
-
-            <div class="tags" aria-hidden="true">
-              <span class="tag is-light">Python</span>
-              <span class="tag is-light">JavaScript</span>
-              <span class="tag is-light">Cloud</span>
+            <div class="icon-box is-primary-box">
+              <span class="icon is-medium has-text-primary">
+                <i class="fas fa-chart-line fa-lg"></i>
+              </span>
             </div>
 
-            <div class="mt-4">
-              <a href="{{ site.url }}{{ site.baseurl }}/#contact" class="button is-primary is-rounded" aria-label="Связаться по бизнес предложению">
-                Обсудить проект
+            <h3 class="title is-5 mb-3">For Business & Startups</h3>
+            <p class="content">
+              I build reliable web applications and <strong>MVPs</strong> from the ground up. I manage the full development lifecycle to ensure your product is scalable.
+            </p>
+
+            <div class="tags mt-3">
+              <span class="tag is-light">Product Architecture</span>
+              <span class="tag is-light">API Design</span>
+            </div>
+
+            <div class="card-action-wrapper">
+              <a href="#contact" class="button is-primary is-fullwidth is-rounded">
+                <strong>Discuss a Project</strong>
               </a>
-              <a href="mailto:{{ site.email }}?subject=Business%20proposal" class="button is-outlined is-rounded ml-2" aria-label="Отправить email для бизнес предложения" rel="noopener">
-                Написать email
-              </a>
+              <a href="mailto:{{ site.email }}" class="button is-text is-fullwidth is-small mt-2">Send an Email</a>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Card: Volunteer -->
-      <div class="column is-one-third-tablet is-full-mobile">
-        <article class="card has-shadow" role="region" aria-labelledby="card-volunteer-title">
+      <div class="column is-4">
+        <article class="card fade-up" role="region">
           <div class="card-content">
-            <h3 id="card-volunteer-title" class="title is-5">Волонтёрство</h3>
-            <p class="content has-text-grey">
-              Помогаю НКО и сообществам: автоматизация процессов, аналитика данных, наставничество. Ориентируюсь на проекты с измеримым социальным эффектом.
+            <div class="icon-box is-link-box">
+              <span class="icon is-medium has-text-link">
+                <i class="fas fa-hands-helping fa-lg"></i>
+              </span>
+            </div>
+
+            <h3 class="title is-5 mb-3">Tech for Social Good</h3>
+            <p class="content">
+              I support NGOs through <strong>process automation</strong> and technical mentoring. I focus on projects that create a measurable social impact.
             </p>
 
-            <div class="tags" aria-hidden="true">
-              <span class="tag is-light">NGO</span>
-              <span class="tag is-light">Automation</span>
+            <div class="tags mt-3">
+              <span class="tag is-light">NGO Support</span>
               <span class="tag is-light">Mentoring</span>
             </div>
 
-            <div class="mt-4">
-              <a href="{{ site.url }}{{ site.baseurl }}/#contact" class="button is-link is-rounded" aria-label="Связаться по волонтерскому предложению">
-                Предложить проект
+            <div class="card-action-wrapper">
+              <a href="#contact" class="button is-link is-fullwidth is-rounded">
+                <strong>Propose a Project</strong>
               </a>
-              <a href="mailto:{{ site.email }}?subject=Volunteer%20opportunity" class="button is-outlined is-rounded ml-2" aria-label="Отправить email для волонтерского предложения" rel="noopener">
-                Написать email
-              </a>
+              <a href="mailto:{{ site.email }}" class="button is-text is-fullwidth is-small mt-2">Get in Touch</a>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Card: Individuals -->
-      <div class="column is-one-third-tablet is-full-mobile">
-        <article class="card has-shadow" role="region" aria-labelledby="card-individual-title">
+      <div class="column is-4">
+        <article class="card fade-up" role="region">
           <div class="card-content">
-            <h3 id="card-individual-title" class="title is-5">Для частных лиц</h3>
-            <p class="content has-text-grey">
-              Консультации по архитектуре, прототипирование и разработка MVP. Помогаю превратить идею в работающий продукт с минимальными рисками.
-            </p>
-
-            <div class="tags" aria-hidden="true">
-              <span class="tag is-light">Prototyping</span>
-              <span class="tag is-light">MVP</span>
-              <span class="tag is-light">Consulting</span>
+            <div class="icon-box is-success-box">
+              <span class="icon is-medium has-text-success">
+                <i class="fas fa-lightbulb fa-lg"></i>
+              </span>
             </div>
 
-            <div class="mt-4">
-              <a href="{{ site.url }}{{ site.baseurl }}/#contact" class="button is-primary is-rounded" aria-label="Связаться по индивидуальному предложению">
-                Обсудить идею
+            <h3 class="title is-5 mb-3">Individual Founders</h3>
+            <p class="content">
+              I provide architectural consulting and rapid prototyping for <strong>creators</strong>. I help transform ideas into working products.
+            </p>
+
+            <div class="tags mt-3">
+              <span class="tag is-light">Prototyping</span>
+              <span class="tag is-light">Roadmap</span>
+            </div>
+
+            <div class="card-action-wrapper">
+              <a href="#contact" class="button is-primary is-outlined is-fullwidth is-rounded">
+                <strong>Share Your Idea</strong>
               </a>
-              <a href="mailto:{{ site.email }}?subject=Project%20idea" class="button is-outlined is-rounded ml-2" aria-label="Отправить email для индивидуального предложения" rel="noopener">
-                Написать email
-              </a>
+              <a href="mailto:{{ site.email }}" class="button is-text is-fullwidth is-small mt-2">Contact Me</a>
             </div>
           </div>
         </article>
@@ -88,3 +97,5 @@
     </div>
   </div>
 </section>
+
+

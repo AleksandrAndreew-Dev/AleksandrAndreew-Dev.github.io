@@ -20,6 +20,16 @@ $navbar-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transition: $navbar-transition;
   animation: slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
+  .navbar-container {
+    display: flex;
+    align-items: stretch;
+    min-height: $navbar-height;
+    width: 100%;
+    max-width: 1200px; // Синхронно с вашим .container
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
   &.is-scrolled {
     box-shadow: $navbar-shadow;
     background: $navbar-background-scrolled;
@@ -142,7 +152,6 @@ $navbar-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   background: none;
   cursor: pointer;
-  display: none;
   width: 3.25rem;
   height: 3.25rem;
   position: relative;
@@ -191,45 +200,26 @@ $navbar-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* === АДАПТИВНОСТЬ === */
-
-/* Мобильные устройства (до 1023px) */
 @media (max-width: 1023px) {
-  .navbar-burger {
-    display: block;
+  #navbar .navbar-container {
+    flex-wrap: wrap; // Чтобы меню могло падать на вторую строку
   }
 
   .navbar-menu {
     display: none;
-    position: fixed;
-    top: $navbar-height;
-    left: 0;
-    right: 0;
-    background: hsla(0, 0%, 100%, 0.98);
-    backdrop-filter: blur(10px);
+    width: 100%; // Занимает всю ширину под логотипом
+    background: $navbar-background;
     max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease;
     opacity: 0;
-    z-index: 999;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
 
     &.is-active {
       display: block;
-      max-height: calc(100vh - #{$navbar-height});
+      max-height: 100vh;
       opacity: 1;
-      overflow-y: auto;
+      padding: 1rem 0;
     }
-  }
-
-  .navbar-end {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1rem;
-  }
-
-  .navbar-item.nav-link {
-    margin: 0.25rem 0;
-    padding: 1rem;
-    justify-content: flex-start;
   }
 }
 
@@ -241,6 +231,19 @@ $navbar-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   .navbar-menu {
     display: flex !important;
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-items: stretch;
+    background: transparent !important;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-end {
+    display: flex;
+    align-items: center;
+    margin-left: auto; // Прижимает меню к правому краю
   }
 }
 

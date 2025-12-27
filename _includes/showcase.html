@@ -1,8 +1,7 @@
 <section class="hero is-fullheight-with-navbar" id="hero"
-         style="background: var(--primary) url('{{site.heroimage | relative_url}}') no-repeat center center; background-size: cover; position: relative; overflow: hidden; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;">
+         style="background: url('{{site.heroimage | relative_url}}') no-repeat center center; background-size: cover; position: relative; overflow: hidden; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;">
          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.45); z-index: 1;"></div>
-  <!-- Удалите или исправьте overlay div, если он дублируется с CSS -->
- <div class="hero-body" style="position: absolute; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 7rem; align-items: center; text-align: center; flex-grow: 1; bottom: 0; left: 30%; ">
+<div class="hero-body" style="position: absolute; z-index: 2; width: 100%; bottom: 0; display: flex; align-items: center; justify-content: center;">
     <div class="container has-text-centered">
       <h1 class="title has-text-white is-size-1 is-size-3-mobile is-uppercase has-text-weight-bold mb-5">
         {{site.description}}

@@ -1,24 +1,31 @@
 ---
 ---
+
+
 @use 'main';
 @use 'navbar';
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @import url('https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css');
 
 
-
-/* === ПЕРЕМЕННЫЕ === */
-:root{
-  --primary:#2563eb;
-  --primary-dark:#1d4ed8;
-  --secondary:#10b981;
-  --dark:#1f2937;
-  --light:#f9fafb;
-  --white:#ffffff;
-  --shadow:0 4px 6px -1px rgba(0,0,0,0.1);
-  --transition:0.3s ease;
-  --border-radius:12px;
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-soft: rgba(37, 99, 235, 0.1);
+  --secondary: #10b981;
+  --secondary-soft: rgba(16, 185, 129, 0.1);
+  --link-soft: rgba(72, 95, 199, 0.1);
+  --dark: #363636;
+  --light: #f5f5f5;
+  --white: #ffffff;
+  --black: #000000;
+  --grey: #666;
+  --border-radius: 12px;
+  --transition: 0.3s ease;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 5px 15px -8px rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
 }
 
 /* === БАЗОВЫЕ СТИЛИ === */
@@ -42,9 +49,74 @@ a:hover{color:var(--primary-dark)}
 .has-background-primary{background-color:var(--primary) !important}
 .has-background-light{background-color:var(--light) !important}
 
-/* === КАРТОЧКИ === */
-.card{border-radius:var(--border-radius);transition:transform var(--transition),box-shadow var(--transition);border:1px solid rgba(0,0,0,0.05)}
-.card:hover{transform:translateY(-8px);box-shadow:0 15px 30px rgba(0,0,0,0.1) !important}
+/* === СОВРЕМЕННЫЕ КАРТОЧКИ === */
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.03) !important; // Почти невидимая граница
+  box-shadow: var(--card-shadow) !important;
+  border-radius: 20px !important; // Более скругленные углы
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  overflow: hidden;
+
+  .card-content {
+    padding: 2rem !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--card-hover-shadow) !important;
+    border-color: var(--primary-soft) !important;
+  }
+}
+
+/* Контейнер для иконки с мягким фоном */
+.icon-box {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+
+  &.is-primary-box { background-color: var(--primary-soft); }
+  &.is-link-box { background-color: var(--link-soft); }
+  &.is-success-box { background-color: var(--secondary-soft); }
+}
+
+/* Текстовые акценты */
+.card .title {
+  font-size: 1.25rem !important;
+  letter-spacing: -0.02em;
+}
+
+.card .content {
+  font-size: 0.95rem;
+  color: #64748b !important; // Более мягкий цвет текста
+  line-height: 1.7;
+}
+
+/* Прижимаем кнопки к низу */
+.card-action-wrapper {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+/* Теги */
+.tag.is-light {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  font-size: 0.75rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
 /* === ПРОГРЕСС-БАРЫ === */
 .progress{height:8px;border-radius:4px;overflow:hidden;background-color:#e5e7eb}
@@ -136,7 +208,7 @@ hr.is-primary{background-color:rgba(37,99,235,0.2)}
 #footer .back-to-top:hover{border-color:var(--primary);background-color:var(--primary);transform:translateY(-2px);box-shadow:0 4px 12px rgba(37,99,235,0.2)}
 
 /* === СКРОЛЛБАР === */
-::-webkit-scrollbar{width:10px;height:10px}
+
 ::-webkit-scrollbar-track{background:var(--light);border-radius:var(--border-radius)}
 ::-webkit-scrollbar-thumb{background:#9ca3af;border-radius:var(--border-radius);border:2px solid var(--light)}
 ::-webkit-scrollbar-thumb:hover{background:#6b7280}
@@ -149,6 +221,11 @@ hr.is-primary{background-color:rgba(37,99,235,0.2)}
 .container{max-width:1200px;width:100%;margin:0 auto;padding:0 1rem}
 .container.is-fluid{max-width:100%}
 .container.is-narrow{max-width:800px}
+
+
+#about .avatar {
+  width: 250px;
+}
 
 /* === ОТЗЫВЧИВОСТЬ === */
 @media screen and (max-width:1024px){
@@ -189,4 +266,196 @@ hr.is-primary{background-color:rgba(37,99,235,0.2)}
   .card{background-color:var(--light);border-color:#374151}
   #footer{background-color:#000;color:#fff}
   #footer .newsletter-box{background-color:#111}
+}
+
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+
+.is-active-page {
+  color: var(--primary) !important;
+  font-weight: 600 !important;
+}
+
+
+.project-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  .card-image {
+    transform: translateZ(20px);
+  }
+
+  &:hover {
+    .card-image {
+      transform: translateZ(40px) rotateX(5deg);
+    }
+  }
+}
+
+
+/* Добавить в конец style.scss */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+  &:hover { transform: translateY(-5px); }
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      rgba(255,255,255,0.1),
+      rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.stagger-animate > * {
+  opacity: 0;
+  animation: fade-up 0.6s ease-out forwards;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem !important;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .hero-body {
+    padding-bottom: 4rem !important;
+  }
+}
+
+
+/* === АДАПТИВНОСТЬ И КОРРЕКТИРОВКИ === */
+
+/* Планшеты и мобильные устройства (до 1023px) */
+@media screen and (max-width: 1023px) {
+  #navbar {
+    .navbar-burger {
+      display: block; // Исправляем скрытый бургер
+    }
+
+    .navbar-menu {
+      background: var(--white);
+      padding: 1rem;
+      text-align: center;
+
+      .nav-link {
+        justify-content: center;
+        margin: 0.5rem 0;
+      }
+    }
+  }
+
+  .hero-body {
+    left: 0 !important; // Убираем смещение 30% из showcase.html
+    padding-bottom: 3rem !important;
+  }
+}
+
+/* Мобильные устройства (до 768px) */
+@media screen and (max-width: 767px) {
+  .section {
+    padding: 3rem 1.5rem; // Уменьшаем отступы секций
+  }
+
+  .title.is-2 {
+    font-size: 1.75rem !important;
+  }
+
+  .card-content {
+    padding: 1.5rem !important; // Уменьшаем padding в карточках
+  }
+
+  .status-indicator {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Тёмная тема (уточнение) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #111827;
+    --light: #1f2937;
+    --dark: #f9fafb;
+    --grey: #9ca3af;
+  }
+
+  .card {
+    background: #1f2937;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+
+
+#hero {
+  /* Значение по умолчанию для больших экранов */
+  background-position: center center !important;
+}
+
+/* Когда экран становится меньше (например, планшеты и мобильные) */
+@media screen and (max-width: 1023px) {
+  #hero {
+    /* Сдвигаем фон: 100% по горизонтали означает прижать к правому краю (картинка уйдет влево) */
+    /* Либо используйте конкретные значения, например: 80% center */
+    background-position: 80% center !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #hero {
+    /* На узких мобильных сдвигаем еще сильнее */
+    background-position: 100% center !important;
+  }
 }
