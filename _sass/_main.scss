@@ -1,16 +1,4 @@
 
-
-
-
-html,
-body {
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth !important;
-    transition: all 0.25s ease;
-}
-
-
-
 /* width */
 ::-webkit-scrollbar {
     width: 0.5vmax !important;
@@ -33,15 +21,6 @@ body {
 
 ::placeholder {
     font-family: 'Poppins', sans-serif;
-}
-
-#navbar {
-    .navbar-burger {
-        span:nth-child(2) {
-            left: calc(50%);
-            width: 8px;
-        }
-    }
 }
 
 .is-active {
@@ -70,32 +49,5 @@ hr {
             text-decoration: underline;
         }
     }
-}
-
-
-/* === СТИЛИ ФУТЕРА === */
-#footer {
-  .has-background-black {
-    background-color: #000 !important;
-  }
-
-  .has-text-grey-light {
-    color: #999 !important;
-  }
-
-  .hover-primary:hover {
-    color: var(--primary) !important;
-  }
-
-  /* Responsive adjustments for footer */
-  @media (max-width: 768px) {
-    .columns.is-variable.is-5 {
-      --columnGap: 1rem;
-    }
-
-    .column {
-      width: 100% !important;
-    }
-  }
 }
 

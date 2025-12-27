@@ -1,6 +1,6 @@
-<nav class="navbar is-light is-fixed-top" role="navigation" aria-label="main navigation" id="navbar">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" id="navbar">
     <div class="container">
-        <!-- Бренд с анимацией -->
+        <!-- Бренд с бургером -->
         <div class="navbar-brand">
             <a class="navbar-item brand-logo has-text-weight-bold has-text-primary"
                 href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
@@ -15,300 +15,43 @@
                 </div>
             </a>
 
-            <!-- Улучшенный бургер-меню -->
-            <button class="navbar-burger burger-animated" data-target="navbar-menu" aria-label="menu" aria-expanded="false">
-                <span class="burger-line top"></span>
-                <span class="burger-line middle"></span>
-                <span class="burger-line bottom"></span>
-            </button>
+            <!-- Бургер с data-target -->
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
         </div>
 
-        <!-- Меню с улучшенной структурой -->
-        <div class="navbar-menu" id="navbar-menu">
+        <!-- Меню -->
+        <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
-                <div class="navbar-menu-content">
-                    <a class="navbar-item nav-link {% if page.layout == 'default' %}is-active{% endif %}"
-                        href="{% if page.layout == 'default' %}{{site.url}}{{site.baseurl}}/#{% else %}{{site.url}}{{site.baseurl}}/{% endif %}">
-                        <span class="nav-icon"><i class="fas fa-home"></i></span>
-                        <span class="nav-text">Home</span>
-                        <span class="nav-underline"></span>
-                    </a>
-                    <a class="navbar-item nav-link" href="{{site.url}}{{site.baseurl}}/#about">
-                        <span class="nav-icon"><i class="fas fa-user"></i></span>
-                        <span class="nav-text">About</span>
-                        <span class="nav-underline"></span>
-                    </a>
-                    <!-- ИЗМЕНЕНИЕ ЗДЕСЬ: поменяли #project на #projects -->
-                    <a class="navbar-item nav-link" href="{{site.url}}{{site.baseurl}}/project">
-                        <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
-                        <span class="nav-text">Projects</span>
-                        <span class="nav-underline"></span>
-                    </a>
-                    <a class="navbar-item nav-link {% if page.layout == 'blog' %}is-active{% endif %}"
-                        href="{{site.url}}{{site.baseurl}}/blog">
-                        <span class="nav-icon"><i class="fas fa-blog"></i></span>
-                        <span class="nav-text">Blog</span>
-                        <span class="nav-underline"></span>
-                    </a>
-                </div>
+                <a class="navbar-item nav-link {% if page.url == '/' %}is-active{% endif %}"
+                    href="{{site.url}}{{site.baseurl}}/">
+                    <span class="nav-icon"><i class="fas fa-home"></i></span>
+                    <span class="nav-text">Home</span>
+                    <span class="nav-underline"></span>
+                </a>
+                <a class="navbar-item nav-link {% if page.url contains 'about' %}is-active{% endif %}"
+                    href="{{site.url}}{{site.baseurl}}/#about">
+                    <span class="nav-icon"><i class="fas fa-user"></i></span>
+                    <span class="nav-text">About</span>
+                    <span class="nav-underline"></span>
+                </a>
+                <a class="navbar-item nav-link {% if page.url contains 'project' %}is-active{% endif %}"
+                    href="{{site.url}}{{site.baseurl}}/project">
+                    <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
+                    <span class="nav-text">Projects</span>
+                    <span class="nav-underline"></span>
+                </a>
+                <a class="navbar-item nav-link {% if page.url contains 'blog' %}is-active{% endif %}"
+                    href="{{site.url}}{{site.baseurl}}/blog">
+                    <span class="nav-icon"><i class="fas fa-blog"></i></span>
+                    <span class="nav-text">Blog</span>
+                    <span class="nav-underline"></span>
+                </a>
             </div>
         </div>
     </div>
-
-    <!-- Индикатор скролла -->
-    <div class="scroll-indicator"></div>
 </nav>
 
-<script>
-// Вставьте этот скрипт вместо текущего в файле navbar.html
-
-document.addEventListener('DOMContentLoaded', function () {
-    const navbar = document.getElementById('navbar');
-    const navbarBurgers = Array.from(document.querySelectorAll('.navbar-burger'));
-    const navbarMenu = document.getElementById('navbar-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-
-    // Получаем все секции на странице
-    const sections = Array.from(document.querySelectorAll('section[id]'));
-    const mainNavLinks = document.querySelectorAll('.nav-link');
-
-    // Бургер меню с анимацией
-    if (navbarBurgers.length) {
-        navbarBurgers.forEach(burger => {
-            burger.addEventListener('click', function () {
-                const target = this.dataset.target;
-                const menu = document.getElementById(target);
-
-                // Анимация бургера
-                this.classList.toggle('is-active');
-                menu.classList.toggle('is-active');
-
-                // Блокировка скролла при открытом меню
-                document.body.style.overflow = menu.classList.contains('is-active') ? 'hidden' : '';
-            });
-        });
-    }
-
-    // Закрытие меню при клике на ссылку (для мобильных)
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                navbarBurgers.forEach(burger => burger.classList.remove('is-active'));
-                navbarMenu.classList.remove('is-active');
-                document.body.style.overflow = '';
-            }
-        });
-    });
-
-    // Эффект скролла навигации
-    let lastScrollTop = 0;
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        // Скрытие/показ навигации только на десктопе
-        if (window.innerWidth > 768) {
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                navbar.style.transform = 'translateY(0)';
-            }
-        }
-
-        // Добавление тени при скролле
-        if (scrollTop > 10) {
-            navbar.classList.add('is-scrolled');
-        } else {
-            navbar.classList.remove('is-scrolled');
-        }
-
-        // Индикатор скролла
-        if (scrollIndicator) {
-            const windowHeight = window.innerHeight;
-            const bodyHeight = document.body.clientHeight;
-            const scrollPercentage = (scrollTop / (bodyHeight - windowHeight)) * 100;
-            scrollIndicator.style.width = `${Math.min(scrollPercentage, 100)}%`;
-        }
-
-        // Определяем активную секцию при скролле
-        updateActiveSection();
-
-        lastScrollTop = scrollTop;
-    });
-
-    // Функция для определения активной секции
-    function updateActiveSection() {
-        const scrollPosition = window.scrollY + 100; // Небольшой отступ
-
-        // Если мы в самом верху страницы
-        if (scrollPosition < 200) {
-            mainNavLinks.forEach(link => {
-                link.classList.remove('is-active');
-                const underline = link.querySelector('.nav-underline');
-                if (underline) underline.style.width = '0';
-
-                // Активируем Home если мы на главной странице
-                const href = link.getAttribute('href');
-                if ((href === '/' || href.includes('/#') || href.endsWith('#')) && !href.includes('#about') && !href.includes('#projects')) {
-                    link.classList.add('is-active');
-                    const underline = link.querySelector('.nav-underline');
-                    if (underline) underline.style.width = '80%';
-                }
-            });
-            return;
-        }
-
-        // Находим текущую секцию
-        let currentSectionId = '';
-        let minDistance = Infinity;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            const sectionBottom = sectionTop + sectionHeight;
-
-            // Проверяем, находится ли скролл в пределах секции
-            if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-                currentSectionId = section.id;
-            }
-
-            // Если не нашли по прямому попаданию, ищем ближайшую
-            const distance = Math.abs(sectionTop - scrollPosition);
-            if (distance < minDistance) {
-                minDistance = distance;
-                if (!currentSectionId) {
-                    currentSectionId = section.id;
-                }
-            }
-        });
-
-        // Обновляем активные ссылки
-        mainNavLinks.forEach(link => {
-            link.classList.remove('is-active');
-            const underline = link.querySelector('.nav-underline');
-            if (underline) underline.style.width = '0';
-
-            const href = link.getAttribute('href');
-            if (href && href.includes(currentSectionId)) {
-                link.classList.add('is-active');
-                const underline = link.querySelector('.nav-underline');
-                if (underline) underline.style.width = '80%';
-            }
-        });
-    }
-
-    // Обработка клика на навигационные ссылки
-    mainNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-
-            // Если это якорная ссылка
-            if (href && href.includes('#')) {
-                e.preventDefault();
-
-                // Удаляем активный класс у всех ссылок
-                mainNavLinks.forEach(l => {
-                    l.classList.remove('is-active');
-                    const underline = l.querySelector('.nav-underline');
-                    if (underline) underline.style.width = '0';
-                });
-
-                // Добавляем активный класс текущей ссылке
-                this.classList.add('is-active');
-                const underline = this.querySelector('.nav-underline');
-                if (underline) underline.style.width = '80%';
-
-                // Плавный скролл к секции
-                const targetId = href.split('#')[1];
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    // Если секции нет (например, Blog), просто переходим
-                    window.location.href = href;
-                }
-            }
-        });
-    });
-
-    // Анимация при наведении на ссылки
-    navLinks.forEach(link => {
-        link.addEventListener('mouseenter', function() {
-            if (!this.classList.contains('is-active')) {
-                const underline = this.querySelector('.nav-underline');
-                if (underline) {
-                    underline.style.width = '100%';
-                }
-            }
-        });
-
-        link.addEventListener('mouseleave', function() {
-            if (!this.classList.contains('is-active')) {
-                const underline = this.querySelector('.nav-underline');
-                if (underline) {
-                    underline.style.width = '0';
-                }
-            }
-        });
-    });
-
-    // Инициализация активного состояния при загрузке
-    function initActiveState() {
-        const currentHash = window.location.hash;
-
-        if (currentHash) {
-            const targetId = currentHash.substring(1);
-            mainNavLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.includes(targetId)) {
-                    link.classList.add('is-active');
-                    const underline = link.querySelector('.nav-underline');
-                    if (underline) underline.style.width = '80%';
-                }
-            });
-        } else {
-            // Если хеша нет, проверяем, находимся ли мы на главной
-            const homeLinks = document.querySelectorAll('.nav-link[href*="#"]');
-            const isHomePage = window.location.pathname === '/' ||
-                              window.location.pathname.includes('/index') ||
-                              window.location.pathname === '{{site.url}}{{site.baseurl}}/';
-
-            if (isHomePage && window.scrollY < 200) {
-                homeLinks.forEach(link => {
-                    const href = link.getAttribute('href');
-                    if ((href === '/' || href.includes('/#') || href.endsWith('#')) &&
-                        !href.includes('#about') && !href.includes('#projects')) {
-                        link.classList.add('is-active');
-                        const underline = link.querySelector('.nav-underline');
-                        if (underline) underline.style.width = '80%';
-                    }
-                });
-            } else {
-                // Для страниц без хеша (например, Blog)
-                const currentPath = window.location.pathname;
-                mainNavLinks.forEach(link => {
-                    const href = link.getAttribute('href');
-                    if (href && !href.includes('#') && currentPath.includes(href)) {
-                        link.classList.add('is-active');
-                        const underline = link.querySelector('.nav-underline');
-                        if (underline) underline.style.width = '80%';
-                    }
-                });
-            }
-        }
-
-        // Инициализируем позицию секции
-        updateActiveSection();
-    }
-
-    // Инициализируем при загрузке
-    initActiveState();
-
-    // Также инициализируем при изменении хеша
-    window.addEventListener('hashchange', initActiveState);
-});
-</script>
