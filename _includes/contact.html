@@ -1,65 +1,71 @@
 <section class="section has-background-light" id="contact">
     <div class="container">
-        <div class="has-text-centered mb-6">
+        <div class="has-text-centered mb-6 fade-up">
             <h2 class="title is-2 has-text-weight-bold mb-3">Get In Touch</h2>
-            <p class="subtitle is-5 has-text-grey">Have a project in mind or just want to talk tech? I’m always open to interesting opportunities and coffee chats</p>
+            <div class="title-underline mx-auto"></div>
         </div>
 
-        <div class="columns is-centered is-multiline">
-            {% unless site.facebook_username == nil %}
-            <div class="column is-4-desktop is-6-tablet">
-                <a id="contact-button-fb" href="https://m.me/{{site.facebook_username}}"
-                    class="button is-fullwidth is-primary is-rounded is-medium"
-                    target="_blank">
-                    <span class="icon"><i class="fab fa-facebook-messenger"></i></span>
-                    <span>Messenger</span>
-                </a>
+        <div class="columns is-variable is-8 is-vcentered">
+            <div class="column is-5 fade-up">
+                <div class="contact-info-panel">
+                    <h3 class="title is-4 mb-5">Contact Information</h3>
+
+                    {% if site.email %}
+                    <div class="contact-item mb-5">
+                        <div class="icon-circle is-link">
+                            <img src="/assets/images/social/gmail-icon-logo-svgrepo-com.svg" alt="Email" style="width: 28px; height: 28px;">
+                        </div>
+                        <div class="contact-details">
+                            <span class="is-size-7 has-text-grey is-uppercase">Email</span>
+                            <a href="mailto:{{site.email}}" class="is-size-5 has-text-weight-semibold d-block">{{site.email}}</a>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if site.telegram_username %}
+                    <div class="contact-item mb-5">
+                        <div class="icon-circle is-success">
+                            <img src="/assets/images/social/telegram-svgrepo-com.svg" alt="Telegram" style="width: 28px; height: 28px;">
+                        </div>
+                        <div class="contact-details">
+                            <span class="is-size-7 has-text-grey is-uppercase">Telegram</span>
+                            <a href="https://t.me/{{site.telegram_username}}" class="is-size-5 has-text-weight-semibold d-block">@{{site.telegram_username}}</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
-            {% endunless %}
 
-            {% unless site.email == nil %}
-            <div class="column is-4-desktop is-6-tablet">
-                <a id="contact-button-email" href="mailto:{{site.email}}"
-                    class="button is-fullwidth is-primary is-outlined is-rounded is-medium"
-                    target="_blank">
-                    <span class="icon"><i class="fas fa-envelope"></i></span>
-                    <span>Email</span>
-                </a>
-            </div>
-            {% endunless %}
+            <div class="column is-7 fade-up">
+                <div class="social-grid">
+                    {% if site.linkedin_username %}
+                    <a href="https://linkedin.com/in/{{site.linkedin_username}}" class="social-tile" target="_blank">
+                        <img src="/assets/images/social/linkedin-svgrepo-com.svg" alt="LinkedIn" class="tile-logo">
+                        <span>LinkedIn</span>
+                    </a>
+                    {% endif %}
 
-            {% unless site.twitter_username == nil %}
-            <div class="column is-4-desktop is-6-tablet">
-                <a id="contact-button-tw" href="https://www.twitter.com/intent/tweet?screen_name={{site.twitter_username}}"
-                    class="button is-fullwidth is-link is-rounded is-medium"
-                    target="_blank">
-                    <span class="icon"><i class="fab fa-twitter"></i></span>
-                    <span>Twitter</span>
-                </a>
-            </div>
-            {% endunless %}
-        </div>
+                    {% if site.github_username %}
+                    <a href="https://github.com/{{site.github_username}}" class="social-tile" target="_blank">
+                        <img src="/assets/images/social/github-mark.png" alt="GitHub" class="tile-logo">
+                        <span>GitHub</span>
+                    </a>
+                    {% endif %}
 
-        <hr class="my-6">
+                    {% if site.facebook_username %}
+                    <a href="https://m.me/{{site.facebook_username}}" class="social-tile" target="_blank">
+                        <i class="fab fa-facebook-messenger has-text-link" style="font-size: 40px; margin-bottom: 10px;"></i>
+                        <span>Messenger</span>
+                    </a>
+                    {% endif %}
 
-        <div class="has-text-centered">
-            <h3 class="title is-4 mb-5">Also find me on</h3>
-            <div class="social-icons is-size-3">
-                {% unless site.instagram_username == nil %}
-                <a href="http://www.instagram.com/{{site.instagram_username}}" target="_blank" class="mx-3" aria-label="Instagram">
-                    <i class="fab fa-instagram has-text-dark"></i>
-                </a>
-                {% endunless %}
-                {% unless site.linkedin_username == nil %}
-                <a href="http://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" class="mx-3" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin has-text-dark"></i>
-                </a>
-                {% endunless %}
-                {% unless site.github_username == nil %}
-                <a href="http://www.github.com/{{site.github_username}}" target="_blank" class="mx-3" aria-label="GitHub">
-                    <i class="fab fa-github has-text-dark"></i>
-                </a>
-                {% endunless %}
+                    {% if site.instagram_username %}
+                    <a href="https://instagram.com/{{site.instagram_username}}" class="social-tile" target="_blank">
+                        <i class="fab fa-instagram has-text-danger" style="font-size: 40px; margin-bottom: 10px;"></i>
+                        <span>Instagram</span>
+                    </a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

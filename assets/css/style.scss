@@ -1,10 +1,12 @@
 ---
 ---
+
 @use 'main';
 @use 'navbar';
 
 @import url('https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css');
 
+/* === 1. ПЕРЕМЕННЫЕ === */
 :root {
   /* Основные цвета */
   --primary: #2563eb;
@@ -81,7 +83,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
   }
 
-  /* Список внутри карточек */
   .custom-list {
     list-style: none;
     margin-left: 0;
@@ -97,7 +98,6 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
-  /* Эффекты при наведении */
   &:hover {
     transform: translateY(-12px);
     box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.12) !important;
@@ -107,7 +107,6 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
-  /* Цветовое кодирование категорий */
   &.is-business {
     &:hover { border-color: var(--primary) !important; }
     .custom-list i { color: var(--primary); }
@@ -124,7 +123,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Контейнеры иконок */
 .icon-box {
   width: 60px;
   height: 60px;
@@ -194,7 +192,6 @@ h1, h2, h3, h4, h5, h6 {
 
   .card {
     background: #1f2937;
-
     &.is-business:hover { box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15) !important; }
     &.is-social:hover { box-shadow: 0 20px 40px rgba(72, 95, 199, 0.15) !important; }
     &.is-startup:hover { box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15) !important; }
@@ -207,42 +204,27 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* === 8. АДАПТИВНОСТЬ === */
-@media screen and (max-width: 768px) {
-  .card-content { padding: 1.5rem !important; }
-  .title.is-2 { font-size: 1.75rem !important; }
-}
-
-/* Найти блок #about в style.scss и заменить/дополнить следующим: */
-/* Обновите блок .avatar внутри #about */
+/* === 8. СЕКЦИЯ ABOUT === */
 #about {
   .avatar {
-    /* Вместо 50% (круг) ставим фиксированное скругление, как у карточек */
     border-radius: var(--card-radius) !important;
     border: 8px solid var(--white);
     box-shadow: var(--card-shadow);
     transition: transform 0.5s ease;
-
-    /* Гарантирует, что фото не исказится при изменении ширины колонки */
     object-fit: cover;
-    aspect-ratio: 4 / 5; // Можно задать пропорцию, чтобы всегда был вертикальный овал
+    aspect-ratio: 4 / 5;
     width: 100%;
     height: auto;
-
   }
 
-  /* Исправление выстраивания карточек экспертизы */
   .expertise-grid {
-    .columns {
-      margin: 0; // Убираем лишние отступы Bulma внутри вложенности
-    }
-
+    .columns { margin: 0; }
     .expertise-item {
       background: transparent;
       padding: 1.25rem;
       border-radius: var(--border-radius);
       transition: var(--transition);
-      height: 100%; // Карточки в одном ряду будут равной высоты
+      height: 100%;
       border-left: 3px solid transparent;
 
       &:hover {
@@ -254,32 +236,177 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Фикс для мобильных разрешений (до 768px) */
+/* === 9. СЕКЦИЯ CONTACT === */
+#contact {
+  .contact-info-panel {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    .icon-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.25rem;
+      font-size: 1.2rem;
+      &.is-link { background: var(--link-soft); color: var(--link-color); }
+      &.is-success { background: var(--secondary-soft); color: var(--secondary); }
+    }
+    .contact-details span { display: block; letter-spacing: 1px; }
+  }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    .social-tile {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--card-radius);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+      img, i { width: 40px; height: 40px; font-size: 40px; margin-bottom: 1rem; }
+      span { font-weight: 600; color: var(--dark); }
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--card-shadow);
+        border-color: var(--primary);
+      }
+      &.instagram i { color: #e4405f; }
+      &.messenger i { color: #0084ff; }
+    }
+  }
+}
+
+/* === 10. ФУТЕР === */
+footer {
+  border-top: 1px solid var(--border-color);
+  .footer-main { padding: 5rem 0 3rem; }
+  .footer-logo-box {
+    display: inline-block;
+    border: 2px solid var(--primary);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    &:hover { background: var(--primary); color: var(--white); transform: scale(1.05); }
+  }
+  .footer-links {
+    list-style: none;
+    margin-left: 0;
+    a {
+      transition: all 0.3s ease;
+      display: inline-block;
+      &:hover { color: var(--primary) !important; transform: translateX(5px); }
+    }
+  }
+  .social-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: var(--transition);
+    &:hover { background: var(--primary-soft); transform: translateY(-5px); }
+  }
+}
+
+/* === 11. ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ === */
+#about-cards {
+  .has-text-centered.mb-5 { margin-bottom: 5rem !important; }
+  .columns { margin-top: 2rem; }
+}
+
+/* === 12. АДАПТИВНОСТЬ (ВСЕ В ОДНОМ МЕСТЕ) === */
 @media screen and (max-width: 768px) {
+  .card-content { padding: 1.5rem !important; }
+  .title.is-2 { font-size: 1.75rem !important; }
+
+  #hero { background-position: 90% center !important; }
+
   #about {
     .expertise-item {
       border-left: none;
       border-bottom: 2px solid transparent;
       text-align: center;
-
-      &:hover {
-        border-bottom-color: var(--primary);
-        transform: translateY(-5px);
-      }
+      &:hover { border-bottom-color: var(--primary); transform: translateY(-5px); }
     }
+    .buttons { justify-content: center; }
+  }
 
-    .buttons {
-      justify-content: center; // Центрируем кнопки на мобилках
+  #about-cards .has-text-centered.mb-5 { margin-bottom: 3rem !important; }
+
+  #contact {
+    .contact-info-panel { padding: 1.5rem; }
+    .social-grid { grid-template-columns: 1fr; }
+    .contact-item {
+      flex-direction: column;
+      text-align: center;
+      .icon-circle { margin-right: 0; margin-bottom: 10px; }
     }
   }
 }
 
 
-/* Сдвиг фонового изображения на мобильных устройствах */
-@media screen and (max-width: 768px) {
-  #hero {
-    /* 'right center' прижмет картинку к правому краю */
-    /* Можно использовать проценты, например '80% center', для более тонкой настройки */
-    background-position: 90% center !important;
+.back-to-top-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: -1.25rem; /* Прижимаем к линии футера */
+  position: relative;
+  z-index: 10;
+}
+
+.back-to-top-wide {
+  background: var(--white) !important; // Светлая на темном фоне футера
+  color: var(--primary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 30px !important;
+  padding: 0.5rem 1.5rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease !important;
+
+  .icon {
+
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+
+    .icon {
+      transform: translateY(-2px); // Стрелочка прыгает вверх при наведении
+    }
+  }
+}
+
+// Корректировка для темной темы
+@media (prefers-color-scheme: dark) {
+  .back-to-top-wide {
+    background: #1f2937 !important; // Цвет карточки из вашего style.scss
+    border-color: rgba(255, 255, 255, 0.1) !important;
   }
 }

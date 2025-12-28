@@ -320,3 +320,12 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
+
+.logo-text {
+  color: var(--dark); // #363636 из ваших переменных
+
+  // Если нужно инвертировать в темной теме:
+  @media (prefers-color-scheme: dark) {
+    color: var(--white);
+  }
+}
