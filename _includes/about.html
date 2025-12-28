@@ -1,81 +1,57 @@
 <section class="section has-background-white" id="about">
   <div class="container">
-    <div class="has-text-centered mb-6">
-      <h2 class="title is-2 has-text-weight-bold">About Me</h2>
-      <p class="subtitle is-5 has-text-grey">Bridging Medical-Grade Precision with Modern Software Engineering</p>
-    </div>
-
-    <div class="columns is-vcentered">
-      <div class="column is-one-third has-text-centered is-full-mobile">
-        <figure class="image is-inline-block mb-4">
-          <img class="is-rounded has-shadow avatar" src="{{ site.author-image }}" alt="{{ site.author-name }}">
+    <div class="columns is-vcentered is-variable is-8">
+      <div class="column is-one-third has-text-centered">
+        <figure class="image is-inline-block mb-5" style="max-width: 250px; width: 100%;">
+            <img class="avatar" src="{{ site.author-image }}" alt="{{ site.author-name }}">
         </figure>
 
-        <div class="status-indicator">
+        <div class="status-indicator pt-2">
           <span class="status-dot is-success"></span>
-          <span class="has-text-weight-semibold has-text-dark">Open for Impactful Projects</span>
+          <span class="has-text-weight-medium is-size-6">Open for Internship & Mentorship</span>
         </div>
       </div>
 
       <div class="column">
-        <div class="content is-medium">
-          <p class="is-size-5 mb-5">
-            My professional path began in <strong>Pharmacy</strong>, a field where precision isn't just a goal—it's a requirement. This background forged my approach to work: methodical, ethical, and deeply focused on the end-user's safety and needs.
-          </p>
-          <p class="is-size-5 mb-5">
-            Transitioning into <strong>Full-Stack Development</strong> allowed me to scale that impact. I don’t just write code; I build digital systems where every "ingredient" (from backend logic to UI) serves a specific purpose. My goal is to help businesses and NGOs turn complex challenges into clean, functional solutions.
-          </p>
-
-          <div class="expertise-section mt-5">
-            <h3 class="title is-4 mb-4 has-text-weight-semibold">My Tech Arsenal</h3>
-
+        <div class="content">
+          <div class="expertise-grid">
             <div class="columns is-multiline">
-              <div class="column is-half">
-                <div class="mb-3">
+              <div class="column is-4-tablet is-12-mobile is-4-desktop">
+                <div class="expertise-item">
                   <span class="icon has-text-primary"><i class="fas fa-server"></i></span>
-                  <strong class="ml-2">Robust Backend</strong>
+                  <strong>Backend</strong>
+                  <p class="is-size-6 has-text-grey">Python, Django, FastAPI, PostgreSQL.</p>
                 </div>
-                <p class="is-size-6 has-text-grey">Python (Django, FastAPI), PostgreSQL, Redis, REST APIs.</p>
               </div>
 
-              <div class="column is-half">
-                <div class="mb-3">
-                  <span class="icon has-text-info"><i class="fas fa-code"></i></span>
-                  <strong class="ml-2">Modern Frontend</strong>
+              <div class="column is-4-tablet is-12-mobile is-4-desktop">
+                <div class="expertise-item">
+                  <span class="icon has-text-info"><i class="fas fa-desktop"></i></span>
+                  <strong>Frontend</strong>
+                  <p class="is-size-6 has-text-grey">React, JavaScript, Bulma & SCSS.</p>
                 </div>
-                <p class="is-size-6 has-text-grey">JavaScript, HTML5, CSS3 (Bulma, Bootstrap), Responsive Design.</p>
               </div>
 
-              <div class="column is-half">
-                <div class="mb-3">
-                  <span class="icon has-text-warning"><i class="fas fa-cloud"></i></span>
-                  <strong class="ml-2">Infrastructure & DevOps</strong>
+              <div class="column is-4-tablet is-12-mobile is-4-desktop">
+                <div class="expertise-item">
+                  <span class="icon has-text-warning"><i class="fas fa-terminal"></i></span>
+                  <strong>DevOps</strong>
+                  <p class="is-size-6 has-text-grey">Docker, Nginx, Linux, Git-flow.</p>
                 </div>
-                <p class="is-size-6 has-text-grey">Docker, Nginx, Traefik, Linux (VPS), Git.</p>
               </div>
 
-              <div class="column is-half">
-                <div class="mb-3">
-                  <span class="icon has-text-success"><i class="fas fa-robot"></i></span>
-                  <strong class="ml-2">AI-Augmented Development</strong>
+              <div class="column is-4-tablet is-12-mobile is-4-desktop">
+                <div class="expertise-item">
+                  <span class="icon has-text-success"><i class="fas fa-bolt"></i></span>
+                  <strong>AI Tools</strong>
+                  <p class="is-size-6 has-text-grey">Claude, DeepSeek development.</p>
                 </div>
-                <p class="is-size-6 has-text-grey">Claude, DeepSeek, Copilot for rapid prototyping and optimization.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="buttons mt-6">
-          <a href="{{ site.baseurl }}/resume.pdf" class="button is-primary is-medium is-rounded" download>
-            <span class="icon"><i class="fas fa-file-download"></i></span>
-            <span>Download Resume</span>
-          </a>
-          <a href="#contact" class="button is-primary is-outlined is-medium is-rounded">
-            <span class="icon"><i class="fas fa-envelope"></i></span>
-            <span>Get In Touch</span>
-          </a>
         </div>
-      </div>
     </div>
   </div>
 </section>
