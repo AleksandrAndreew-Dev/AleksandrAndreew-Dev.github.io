@@ -410,3 +410,16 @@ footer {
     border-color: rgba(255, 255, 255, 0.1) !important;
   }
 }
+
+
+/* Добавь это в конец style.scss */
+
+.footer-main {
+  h5.title, h5 {
+    margin-bottom: 1rem !important; // Регулируй это значение (1.5rem, 2rem, 3rem)
+  }
+
+  .post-card-mini {
+    margin-top: 0.2rem; // Дополнительный микро-отступ для самих постов
+  }
+}

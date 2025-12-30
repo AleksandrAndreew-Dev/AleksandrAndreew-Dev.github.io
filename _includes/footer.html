@@ -59,13 +59,13 @@
 </div>
 
                 <div class="column is-4 is-offset-1">
-                    <h5 class="has-text-white has-text-weight-bold mb-5 is-uppercase is-size-7" style="letter-spacing: 2px;">Latest Updates</h5>
+                    <h5 class="has-text-white has-text-weight-bold mb-6 is-uppercase is-size-7" style="letter-spacing: 2px;">Latest Updates</h5>
                     {% for post in site.posts limit: 2 %}
                     <a href="{{ post.url | absolute_url }}" class="post-card-mini is-block mb-3">
                         <div class="columns is-mobile is-vcentered">
                             <div class="column is-narrow">
                                 <figure class="image is-48x48">
-                                    <img src="{{ post.image | default: '/assets/images/default-post.png' }}" class="is-rounded" style="object-fit: cover;">
+                                    <img src="{{ post.post-image | default: '/assets/images/default-post.png' }}" class="is-rounded" style="object-fit: cover;">
                                 </figure>
                             </div>
                             <div class="column">
