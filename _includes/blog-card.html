@@ -1,52 +1,39 @@
-<article class="card mb-5 has-shadow-hover" id="blog-card">
-  <div class="columns is-vcentered is-mobile">
-    <div class="column is-one-third">
-      <div class="card-image">
-        <figure class="image is-16by9">
-          <img src="{{post.post-image}}" alt="{{post.title}}" loading="lazy">
-        </figure>
+<article class="card blog-card-horizontal mb-5" id="blog-card">
+  <div class="card-image-wrapper">
+    <figure class="image">
+      <img src="{{post.post-image}}" alt="{{post.title}}" loading="lazy">
+      <div class="image-overlay"></div>
+    </figure>
+  </div>
+
+  <div class="card-content">
+    <div class="card-body">
+      <a href="{{post.url | absolute_url}}" class="title-link">
+        <h3 class="title is-4">{{post.title}}</h3>
+      </a>
+
+      <div class="content post-excerpt">
+        {{ post.content | strip_html | truncate: 160 }}
       </div>
     </div>
 
-    <div class="column">
-      <div class="card-content">
-        <a href="{{post.url | absolute_url}}">
-          <h3 class="title is-4 mb-3">{{post.title}}</h3>
-        </a>
-
-        <div class="content has-text-grey mb-4">
-          {{ post.content | truncate: 200 | strip_html | escape }}
-        </div>
-
-        <div class="level is-mobile">
-          <div class="level-left">
-            <div class="tags are-small">
-              <span class="tag is-light">
-                <i class="fas fa-calendar mr-1"></i>
-                {{ post.date | date: "%B %d, %Y" }}
-              </span>
-              <span class="tag is-light">
-                <i class="fas fa-clock mr-1"></i>
-                {% assign words = post.content | number_of_words %}
-                {% if words < 360 %}
-                  1 min
-                {% else %}
-                  {{ words | divided_by:180 }} mins
-                {% endif %}
-              </span>
-            </div>
-          </div>
-
-          <div class="level-right">
-            <a href="{{post.url | absolute_url}}" class="button is-primary is-small">
-              <span>Read More</span>
-              <span class="icon is-small">
-                <i class="fas fa-arrow-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
+    <div class="card-footer-meta">
+      <div class="meta-tags">
+        <span class="tag is-light">
+          <i class="fas fa-calendar-alt mr-2"></i>
+          {{ post.date | date: "%b %d, %Y" }}
+        </span>
+        <span class="tag is-light">
+          <i class="fas fa-stopwatch mr-2"></i>
+          {% assign words = post.content | number_of_words %}
+          {{ words | divided_by: 180 | plus: 1 }} min read
+        </span>
       </div>
+
+      <a href="{{post.url | absolute_url}}" class="read-more-btn">
+        <span>Read More</span>
+        <i class="fas fa-arrow-right ml-2"></i>
+      </a>
     </div>
   </div>
 </article>

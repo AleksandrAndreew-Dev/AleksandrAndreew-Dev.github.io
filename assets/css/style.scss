@@ -7,6 +7,7 @@
 @use 'main';
 @use 'navbar';
 @use 'neon';
+@use 'blog';
 
 @import url('https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css');
 
@@ -634,3 +635,46 @@ body {
 }
 
 
+
+
+.blog-header {
+  padding: 4rem 0 2rem;
+  text-align: center;
+
+  .eyebrow-text {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--grey);
+    font-size: 0.85rem;
+    display: block;
+  }
+
+  .title {
+    color: var(--dark);
+
+    .text-gradient {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .header-divider {
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 1.5rem auto 0;
+    border-radius: 2px;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 768px) {
+  .blog-header {
+    padding: 2.5rem 1rem 1rem;
+
+    .title {
+      font-size: 1.75rem !important; // Синхронизировано с вашими медиа-запросами
+    }
+  }
+}
