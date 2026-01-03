@@ -1,39 +1,25 @@
-<article class="card blog-card-horizontal mb-5" id="blog-card">
-  <div class="card-image-wrapper">
-    <figure class="image">
-      <img src="{{post.post-image}}" alt="{{post.title}}" loading="lazy">
-      <div class="image-overlay"></div>
-    </figure>
-  </div>
-
-  <div class="card-content">
-    <div class="card-body">
-      <a href="{{post.url | absolute_url}}" class="title-link">
-        <h3 class="title is-4">{{post.title}}</h3>
-      </a>
-
-      <div class="content post-excerpt">
-        {{ post.content | strip_html | truncate: 160 }}
-      </div>
+<div class="columns is-vcentered has-text-centered" id="blog-card">
+    <div class="column is-one-third-desktop is-one-third-tablet">
+        <div class="blog-card-image-container">
+            <img src="{{post.post-image}}" alt="{{post.title}}" class="blog-mini-image">
+        </div>
     </div>
 
-    <div class="card-footer-meta">
-      <div class="meta-tags">
-        <span class="tag is-light">
-          <i class="fas fa-calendar-alt mr-2"></i>
-          {{ post.date | date: "%b %d, %Y" }}
-        </span>
-        <span class="tag is-light">
-          <i class="fas fa-stopwatch mr-2"></i>
-          {% assign words = post.content | number_of_words %}
-          {{ words | divided_by: 180 | plus: 1 }} min read
-        </span>
-      </div>
+    <a href="{{post.url | absolute_url}}" class="column has-text-left-desktop has-text-left-tablet">
+        <div>
+            <h1 class="title is-size-4-touch">{{post.title}}</h1>
+            <div class="content has-text-grey">
 
-      <a href="{{post.url | absolute_url}}" class="read-more-btn">
-        <span>Read More</span>
-        <i class="fas fa-arrow-right ml-2"></i>
-      </a>
-    </div>
-  </div>
-</article>
+                <hr class="has-background-grey">
+                <span class="has-text-grey">
+                    Published on <span class="has-text-weight-semibold">{{ post.date | date: "%-B %d, %Y" }}</span>
+                </span>
+                | <i class="fas fa-clock"></i>
+                <span class="has-text-weight-semibold">
+                    {% assign words = post.content | number_of_words %}
+                    {%- unless content.size == 0 -%}{{ words | divided_by:180 | plus: 1 }} min{% endunless %} read
+                </span>
+            </div>
+        </div>
+    </a>
+</div>
