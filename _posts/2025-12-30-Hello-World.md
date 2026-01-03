@@ -1,7 +1,7 @@
 ---
 title: "Hello World: The Journey Begins"
 layout: post
-post-image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+post-image: /assets/images/blog.png
 description: "A formal introduction to my background, technical stack, and how we can work together on exciting web projects."
 tags:
 - introduction

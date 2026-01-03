@@ -1,8 +1,8 @@
 - name: "Novamedika: Pharma Search Platform"
   category: "fullstack"
   image:
-  link: "" # Ссылка на сайт, если есть
-  github: "" # Ссылка на репозиторий
+  link: Novamedika_bot
+  github: https://github.com/AleksandrAndreew-Dev/Novamedika-LTS
   description: "A comprehensive pharmaceutical platform featuring real-time medication search, booking systems, and an interactive Q&A service integrated with Telegram."
   technologies:
     - "Python (FastAPI)"
