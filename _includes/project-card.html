@@ -2,7 +2,9 @@
   {% for project in site.data.projects %}
   <div class="column is-one-third-desktop is-half-tablet">
     <div class="project-card card interactive-card">
+
       <div class="card-image">
+        {% if project.image %}
         <figure class="image is-16by9">
           <img src="{{project.image}}" alt="{{project.name}}" loading="lazy">
           <div class="image-overlay"></div>
@@ -12,30 +14,34 @@
           </span>
           {% endif %}
         </figure>
+        {% else %}
+        <div class="project-placeholder-neon">
+          <span class="neon-text">Coming Soon</span>
+        </div>
+        {% endif %}
       </div>
 
       <div class="card-content">
-        <div class="media">
-          <div class="media-content">
-            <h3 class="title is-5 mb-2 is-primary">{{ project.name }}</h3>
-            <p class="subtitle is-6 has-text-grey mb-3">{{ project.description }}</p>
-          </div>
-        </div>
+        <h3 class="title is-5 mt-2 mb-4">{{ project.name }}</h3>
+
+        <p class="subtitle is-6 has-text-grey mt-2 mb-3">
+          {{ project.description }}
+        </p>
 
         {% if project.technologies %}
-        <div class="tech-tags mb-4">
+        <div class="tech-tags mb-3"> <!-- mb-4 изменено на mb-3 -->
           {% for tech in project.technologies %}
-          <span class="tag is-light is-rounded has-text-grey">{{ tech }}</span>
+          <span class="tag is-light is-rounded">{{ tech }}</span>
           {% endfor %}
         </div>
         {% endif %}
 
         {% if project.results %}
-        <div class="project-results">
-          <h4 class="is-size-6 has-text-weight-semibold mb-2 has-text-dark">Key Results:</h4>
-          <ul class="has-text-grey">
+        <div class="project-results mt-auto">
+          <h4 class="is-size-7 has-text-weight-bold mb-1 is-uppercase">Key Results:</h4> <!-- mb-2 изменено на mb-1 -->
+          <ul>
             {% for result in project.results %}
-            <li class="has-text-grey">{{ result }}</li>
+            <li class="mb-1">{{ result }}</li> <!-- Добавлен класс mb-1 -->
             {% endfor %}
           </ul>
         </div>
@@ -46,14 +52,14 @@
         {% if project.link %}
         <a href="{{ project.link }}" target="_blank"
            class="card-footer-item has-text-secondary has-text-weight-semibold">
-          <span class="icon has-text-secondary"><i class="fas fa-external-link-alt"></i></span>
+          <span class="icon"><i class="fas fa-external-link-alt"></i></span>
           <span>Live Demo</span>
         </a>
         {% endif %}
         {% if project.github %}
         <a href="{{ project.github }}" target="_blank"
-           class="card-footer-item has-text-grey">
-          <span class="icon has-text-grey"><i class="fab fa-github"></i></span>
+           class="card-footer-item has-text-secondary has-text-weight-semibold">
+          <span class="icon"><i class="fab fa-github"></i></span>
           <span>Code</span>
         </a>
         {% endif %}

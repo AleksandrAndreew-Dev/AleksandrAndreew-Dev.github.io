@@ -3,6 +3,7 @@
 
 @use 'main';
 @use 'navbar';
+@use 'neon';
 
 @import url('https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css');
 
@@ -24,6 +25,11 @@
   /* Нейтральные тона (сделаем их чуть холоднее) */
   --dark: #0f172a; /* Глубокий темный */
   --light: #f8fafc; /* Чистый светлый фон */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+  --card-radius: 16px;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --white: #ffffff;
 }
 
 
@@ -428,3 +434,200 @@ footer {
     margin-top: 0.2rem; // Дополнительный микро-отступ для самих постов
   }
 }
+
+
+
+
+
+/* === 1. ПЕРЕМЕННЫЕ === */
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --primary-soft: rgba(79, 70, 229, 0.1);
+  --secondary: #0ea5e9;
+  --secondary-soft: rgba(14, 165, 233, 0.1);
+  --link-color: #2563eb;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --white: #ffffff;
+  --grey: #64748b;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  --card-radius: 16px;
+}
+
+/* === 2. БАЗОВЫЕ СТИЛИ === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* === 3. КАРТОЧКИ ПРОЕКТОВ (ОСНОВНОЙ БЛОК) === */
+.project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--card-shadow) !important;
+  border-radius: var(--card-radius) !important;
+  transition: var(--transition) !important;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .card-image {
+    position: relative;
+    .image-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
+    }
+  }
+
+  .card-content {
+    padding: 1.5rem !important; /* Уменьшили с 2.5rem для лучшего баланса */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .title {
+      color: var(--primary) !important;
+      margin-bottom: 2rem !important;
+    }
+
+    .subtitle {
+      font-size: 0.95rem !important;
+      line-height: 1.5;
+      color: var(--grey) !important;
+    }
+  }
+
+  /* Сетка технологий */
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Равномерные отступы между тегами */
+    margin-bottom: 1.25rem;
+
+    .tag {
+      margin: 0 !important; /* Сброс старых Margin Bulma */
+      font-size: 0.75rem !important;
+      background-color: var(--light) !important;
+      color: var(--grey) !important;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+  }
+
+  /* Блок результатов */
+  .project-results {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.25rem;
+    margin-top: auto; /* Прижимает блок к футеру */
+
+    h4 {
+      color: var(--primary) !important;
+      letter-spacing: 0.5px;
+      font-size: 0.75rem !important;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        position: relative;
+        padding-left: 1.25rem;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+        color: var(--grey);
+
+        &::before {
+          content: "•";
+          color: var(--secondary);
+          position: absolute;
+          left: 0;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+/* === 4. ФУТЕР КАРТОЧКИ === */
+.card-footer {
+  border-top: 1px solid var(--border-color) !important;
+  background: transparent;
+
+  .card-footer-item {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: var(--light);
+      color: var(--primary) !important;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid var(--border-color) !important;
+    }
+
+    .icon {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+/* === 5. ТЕМНАЯ ТЕМА === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #111827;
+    --dark: #f9fafb;
+    --grey: #9ca3af;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --light: #1f2937;
+  }
+
+  .card {
+    background: #1f2937;
+  }
+}
+
+/* === 6. КНОПКА BACK TO TOP === */
+.back-to-top-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -1.25rem;
+  position: relative;
+  z-index: 10;
+}
+
+.back-to-top-wide {
+  background: var(--white) !important;
+  color: var(--primary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 30px !important;
+  padding: 0.5rem 1.5rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: translateY(-3px);
+  }
+}
+
+

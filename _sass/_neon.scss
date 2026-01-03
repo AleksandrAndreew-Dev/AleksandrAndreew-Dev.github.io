@@ -1,0 +1,55 @@
+/* Стили для неоновой заглушки проекта */
+.project-placeholder-neon {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  transition: var(--transition); // Добавляем плавность для вложенных элементов
+
+  .neon-text {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px var(--primary),
+      0 0 40px var(--primary),
+      0 0 80px var(--primary);
+  }
+}
+
+.card.is-disabled {
+  cursor: default;
+
+  &:hover {
+    /* Теперь карточка будет подниматься, так как мы удалили transform: none */
+    /* Если вы хотите, чтобы тень и граница у disabled карточек тоже менялись,
+       удалите !important из строк ниже */
+    box-shadow: var(--card-shadow);
+    border-color: var(--border-color);
+  }
+
+  /* Убираем дополнительные эффекты только для изображения и заглушки */
+  &:hover .card-image,
+  &:hover .project-placeholder-neon,
+  &:hover .image img {
+    transform: none !important; // Изображение не увеличивается и не смещается отдельно от карточки
+    filter: none !important;    // Убираем возможные осветления/блюр
+  }
+
+  &:hover .icon-box {
+    transform: none !important;
+  }
+
+  .title {
+      text-decoration: none !important;
+  }
+}

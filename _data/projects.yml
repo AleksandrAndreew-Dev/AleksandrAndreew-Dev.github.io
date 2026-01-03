@@ -1,6 +1,6 @@
 - name: "Novamedika: Pharma Search Platform"
   category: "fullstack"
-  image: "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?auto=format&fit=crop&q=80&w=1000" # Замени на скриншот своего интерфейса
+  image:
   link: "" # Ссылка на сайт, если есть
   github: "" # Ссылка на репозиторий
   description: "A comprehensive pharmaceutical platform featuring real-time medication search, booking systems, and an interactive Q&A service integrated with Telegram."
