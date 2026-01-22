@@ -3,8 +3,11 @@
     <div class="columns is-vcentered is-variable is-8">
       <div class="column is-one-third has-text-centered">
         <figure class="image is-inline-block mb-5" style="max-width: 250px; width: 100%;">
-            <img class="avatar" src="{{ site.author-image | relative_url }}" alt="{{ site.author-name }}">
-        </figure>
+  <div class="avatar"
+       style="background: url('{{ site.author-image | relative_url }}') no-repeat center center;
+              background-size: cover;">
+  </div>
+</figure>
 
         <div class="status-indicator pt-2">
           <span class="status-dot is-success"></span>
