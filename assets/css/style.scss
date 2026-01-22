@@ -222,21 +222,14 @@ h1, h2, h3, h4, h5, h6 {
 /* === 8. СЕКЦИЯ ABOUT === */
 #about {
   .avatar {
-    /* Обязательно задаем размеры, так как div пустой */
-    width: 250px;
-    height: 320px; /* Вы можете изменить высоту под ваши нужды */
-
     border-radius: var(--card-radius) !important;
     border: 8px solid var(--white);
     box-shadow: var(--card-shadow);
     transition: transform 0.5s ease;
-
-    /* Центрирование внутри колонки */
-    margin: 0 auto;
-
-
-}
-}
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
 
   .expertise-grid {
     .columns { margin: 0; }
@@ -255,7 +248,7 @@ h1, h2, h3, h4, h5, h6 {
       }
     }
   }
-
+}
 
 /* === 9. СЕКЦИЯ CONTACT === */
 #contact {
