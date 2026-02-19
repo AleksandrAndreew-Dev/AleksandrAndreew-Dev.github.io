@@ -35,6 +35,12 @@
                     <span class="nav-text">Home</span>
                     <span class="nav-underline"></span>
                 </a>
+                <a class="navbar-item nav-link {% if page.url contains 'resume' %}is-active{% endif %}"
+    href="{{site.url}}{{site.baseurl}}/resume/">
+    <span class="nav-icon"><i class="fas fa-file-pdf"></i></span>
+    <span class="nav-text">Resume</span>
+    <span class="nav-underline"></span>
+</a>
                 <a class="navbar-item nav-link {% if page.url contains 'about' %}is-active{% endif %}"
                     href="{{site.url}}{{site.baseurl}}/#about">
                     <span class="nav-icon"><i class="fas fa-user"></i></span>
