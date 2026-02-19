@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Резюме
+title: Curriculum Vitae
 permalink: /resume/
 ---
 
