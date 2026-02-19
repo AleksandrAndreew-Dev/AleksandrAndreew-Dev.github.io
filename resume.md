@@ -9,7 +9,7 @@ permalink: /resume/
 
     <hr>
 
-    <iframe src="{{ site.baseurl }}/assets/resume.pdf" width="100%" height="800px" style="border: none;">
+    <iframe src="{{ site.baseurl }}/assets/resume.pdf" width="100%" height="100%" style="border: none;">
         <p>Ваш браузер не поддерживает просмотр PDF.
         <a href="{{ site.baseurl }}/assets/resume.pdf">Нажмите здесь, чтобы скачать файл.</a></p>
     </iframe>
