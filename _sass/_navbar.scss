@@ -202,12 +202,16 @@ $navbar-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 /* === АДАПТИВНОСТЬ === */
 @media (max-width: 1023px) {
   #navbar .navbar-container {
-    flex-wrap: wrap; // Чтобы меню могло падать на вторую строку
+    flex-wrap: wrap;
+  }
+  
+  .navbar-burger {
+    margin-right: 0.5rem;
   }
 
   .navbar-menu {
     display: none;
-    width: 100%; // Занимает всю ширину под логотипом
+    width: 100%;
     background: $navbar-background;
     max-height: 0;
     opacity: 0;
@@ -218,8 +222,13 @@ $navbar-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       display: block;
       max-height: 100vh;
       opacity: 1;
-      padding: 1rem 0;
+      padding: 0.5rem 1rem;
     }
+  }
+  
+  .navbar-item.nav-link {
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0;
   }
 }
 

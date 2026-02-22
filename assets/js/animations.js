@@ -37,4 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
   fadeElements.forEach(el => {
     fadeObserver.observe(el);
   });
+  
+  // Back to Top кнопка
+  const backToTopBtn = document.querySelector('.back-to-top-wide');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 });

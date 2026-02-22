@@ -53,6 +53,52 @@ html, body {
   line-height: 1.6;
 }
 
+/* === 2.1 HERO СЕКЦИЯ === */
+#hero {
+  background: url('{{site.heroimage | relative_url}}') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+  }
+
+  .hero-body {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4rem;
+  }
+}
+
+/* === 2.2 ГЛОБАЛЬНЫЕ СТИЛИ === */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* === 3. ТИПОГРАФИЯ === */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
@@ -199,11 +245,15 @@ h1, h2, h3, h4, h5, h6 {
   :root {
     --white: #111827;
     --dark: #f9fafb;
-    --grey: #9ca3af;
+    --grey: #cbd5e1;
     --border-color: rgba(255, 255, 255, 0.1);
   }
 
   body { background-color: var(--white); color: var(--dark); }
+  
+  .subtitle {
+    color: var(--grey) !important;
+  }
 
   .card {
     background: #1f2937;
@@ -217,6 +267,21 @@ h1, h2, h3, h4, h5, h6 {
     color: #e5e7eb !important;
     border-color: rgba(255,255,255,0.1);
   }
+  
+  #contact {
+    .contact-info-panel {
+      background: #1f2937;
+    }
+    
+    .social-tile {
+      background: #1f2937;
+      border-color: rgba(255, 255, 255, 0.1);
+      
+      &:hover {
+        border-color: var(--primary);
+      }
+    }
+  }
 }
 
 /* === 8. СЕКЦИЯ ABOUT === */
@@ -229,6 +294,33 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: cover;
     width: 100%;
     height: auto;
+    max-width: 250px;
+  }
+  
+  .avatar-container {
+    max-width: 250px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      
+      &.is-success {
+        background-color: var(--secondary);
+        animation: pulse 2s infinite;
+      }
+    }
   }
 
   .expertise-grid {
@@ -250,18 +342,35 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
 /* === 9. СЕКЦИЯ CONTACT === */
 #contact {
   .contact-info-panel {
     background: var(--white);
-    padding: 3rem;
+    padding: 2rem;
     border-radius: var(--card-radius);
     box-shadow: var(--card-shadow);
+    height: 100%;
+  }
+  
+  .d-block {
+    display: block;
   }
 
   .contact-item {
     display: flex;
     align-items: center;
+    
     .icon-circle {
       width: 50px;
       height: 50px;
@@ -271,6 +380,8 @@ h1, h2, h3, h4, h5, h6 {
       justify-content: center;
       margin-right: 1.25rem;
       font-size: 1.2rem;
+      flex-shrink: 0;
+      
       &.is-link { background: var(--link-soft); color: var(--link-color); }
       &.is-success { background: var(--secondary-soft); color: var(--secondary); }
     }
@@ -281,6 +392,7 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    
     .social-tile {
       background: var(--white);
       padding: 2rem;
@@ -291,13 +403,17 @@ h1, h2, h3, h4, h5, h6 {
       justify-content: center;
       transition: var(--transition);
       border: 1px solid var(--border-color);
+      text-decoration: none;
+      
       img, i { width: 40px; height: 40px; font-size: 40px; margin-bottom: 1rem; }
       span { font-weight: 600; color: var(--dark); }
+      
       &:hover {
         transform: translateY(-8px);
         box-shadow: var(--card-shadow);
         border-color: var(--primary);
       }
+      
       &.instagram i { color: #e4405f; }
       &.messenger i { color: #0084ff; }
     }
@@ -338,9 +454,22 @@ footer {
     transition: var(--transition);
     &:hover { background: var(--primary-soft); transform: translateY(-5px); }
   }
+  
+  .footer-section-title {
+    letter-spacing: 2px;
+  }
 }
 
 /* === 11. ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ === */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
 #about-cards {
   .has-text-centered.mb-5 { margin-bottom: 5rem !important; }
   .columns { margin-top: 2rem; }
@@ -426,49 +555,18 @@ footer {
 }
 
 
-/* Добавь это в конец style.scss */
-
+/* === FOOTER MAIN === */
 .footer-main {
   h5.title, h5 {
-    margin-bottom: 1rem !important; // Регулируй это значение (1.5rem, 2rem, 3rem)
+    margin-bottom: 1rem !important;
   }
 
   .post-card-mini {
-    margin-top: 0.2rem; // Дополнительный микро-отступ для самих постов
+    margin-top: 0.2rem;
   }
 }
 
-
-
-
-
-/* === 1. ПЕРЕМЕННЫЕ === */
-:root {
-  --primary: #4f46e5;
-  --primary-dark: #4338ca;
-  --primary-soft: rgba(79, 70, 229, 0.1);
-  --secondary: #0ea5e9;
-  --secondary-soft: rgba(14, 165, 233, 0.1);
-  --link-color: #2563eb;
-  --dark: #0f172a;
-  --light: #f8fafc;
-  --white: #ffffff;
-  --grey: #64748b;
-  --border-color: rgba(0, 0, 0, 0.08);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-  --card-radius: 16px;
-}
-
-/* === 2. БАЗОВЫЕ СТИЛИ === */
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--white);
-  color: var(--dark);
-  line-height: 1.6;
-}
-
-/* === 3. КАРТОЧКИ ПРОЕКТОВ (ОСНОВНОЙ БЛОК) === */
+/* === КАРТОЧКИ ПРОЕКТОВ === */
 .project-card {
   height: 100%;
   display: flex;
