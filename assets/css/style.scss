@@ -422,6 +422,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* === 10. ФУТЕР === */
 footer {
+  position: relative;
   border-top: 1px solid var(--border-color);
   .footer-main { padding: 5rem 0 3rem; }
   .footer-logo-box {
@@ -511,13 +512,13 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-bottom: -1.25rem; /* Прижимаем к линии футера */
+  margin-bottom: -1.25rem;
   position: relative;
-  z-index: 10;
+  z-index: 100;
 }
 
 .back-to-top-wide {
-  background: var(--white) !important; // Светлая на темном фоне футера
+  background: var(--white) !important;
   color: var(--primary) !important;
   border: 1px solid var(--border-color) !important;
   border-radius: 30px !important;
@@ -528,9 +529,9 @@ footer {
   letter-spacing: 1px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease !important;
+  cursor: pointer !important;
 
   .icon {
-
     transition: transform 0.3s ease;
   }
 
@@ -541,7 +542,7 @@ footer {
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 
     .icon {
-      transform: translateY(-2px); // Стрелочка прыгает вверх при наведении
+      transform: translateY(-2px);
     }
   }
 }
